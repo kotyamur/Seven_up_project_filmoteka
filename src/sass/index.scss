@@ -1,2 +1,10 @@
-@import './common';
-@import './example';
+@import './utils/variables';
+@import './utils/base';
+@import './utils/common';
+@import './components/footer';
+@import './components/header';
+@import './components/pagination';
+@import './components/movies_container';
+@import './components/modal_students';
+@import './components/modal_movie';
+@import './components/spinner';
