@@ -2,85 +2,73 @@ export const groupSeven = [
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Kateryna Kleshch ',
+    description: 'Team Lead',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Yuliya Khanenko',
+    description: 'Scram Master',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-21-590_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Oleksandr Shkola',
+    description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Vladimir Ponomarov',
+    description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Ilya Studennikov',
+    description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-21-590_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Iryna Lazarieva',
+    description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Anastasiia Yavtushenko',
+    description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Mikhaylo Pobochikh',
+    description: 'Full Stuck Developer',
+  },
+  {
+    photo:
+      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
+    name: 'Yuliya Zozulya',
+    description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-21-590_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Pavel Bazilevich',
+    description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+    name: 'Yurii Moskalenko',
+    description: 'Full Stuck Developer',
   },
   {
     photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
-  },
-  {
-    photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-21-590_640.jpg',
-    name: 'David Dell',
-    description:
-      'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
+      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
+    name: 'David David',
+    description: 'Full Stuck Developer',
   },
 ];

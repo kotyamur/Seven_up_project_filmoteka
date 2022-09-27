@@ -2,16 +2,36 @@ import { groupSeven } from '../js/students-base.js';
 import Swiper from 'swiper/swiper-bundle.min.js';
 // import Swiper styles
 import 'swiper/swiper-bundle.min.css';
+import '../sass/components/_modal_students.scss';
 
 const openModalBtn = document.querySelector('[data-students-modal-open]');
 const modal = document.querySelector('[data-students-modal]');
 const closeModalBtn = document.querySelector('[data-students-modal-close]');
+const backdrop = document.querySelector('.backdrop');
 
-openModalBtn.addEventListener('click', toggleModal);
-closeModalBtn.addEventListener('click', toggleModal);
+openModalBtn.addEventListener('click', onOpenModal);
+closeModalBtn.addEventListener('click', OnCloseModal);
 
-function toggleModal() {
-  modal.classList.toggle('is-hidden');
+function onOpenModal() {
+  window.addEventListener('keydown', onCloseModalFromKey);
+  backdrop.addEventListener('click', onCloseModalFromClick);
+  modal.classList.remove('is-hidden');
+}
+function OnCloseModal() {
+  window.removeEventListener('keydown', onCloseModalFromKey);
+  backdrop.removeEventListener('click', onCloseModalFromClick);
+  modal.classList.add('is-hidden');
+}
+function onCloseModalFromKey(event) {
+  if (event.code === 'Escape') {
+    modal.classList.add('is-hidden');
+  }
+}
+
+function onCloseModalFromClick(event) {
+  if (event.target === event.currentTarget) {
+    modal.classList.add('is-hidden');
+  }
 }
 
 const cards = document.querySelector('.card-wrapper');
@@ -20,7 +40,6 @@ const makeCard = ({ photo, name, description }) => {
   return `
   <div class="swiper-slide card">
       <div class="image-content">
-        <span class="overlay"></span>
         <div class="card-image">
           <img src="${photo}" alt="" class="card-img" />
         </div>
@@ -30,7 +49,20 @@ const makeCard = ({ photo, name, description }) => {
         <p class="description">
           ${description}
         </p>
-        <button class="button">View More</button>
+         <ul class="social-links list">
+                <li class="social-links__item">
+                  <a class="social-links__link" href="">🐁</a>
+                </li>
+                <li class="social-links__item">
+                  <a class="social-links__link" href="">🕊</a>
+                </li>
+                <li class="social-links__item">
+                  <a class="social-links__link" href="">🐋</a>
+                </li>
+                <li class="social-links__item">
+                  <a class="social-links__link" href="">🦖</a>
+                </li>
+          </ul>
       </div>
     </div>
   `;
