@@ -7,12 +7,31 @@ import '../sass/components/_modal_students.scss';
 const openModalBtn = document.querySelector('[data-students-modal-open]');
 const modal = document.querySelector('[data-students-modal]');
 const closeModalBtn = document.querySelector('[data-students-modal-close]');
+const backdrop = document.querySelector('.backdrop');
 
-openModalBtn.addEventListener('click', toggleModal);
-closeModalBtn.addEventListener('click', toggleModal);
+openModalBtn.addEventListener('click', onOpenModal);
+closeModalBtn.addEventListener('click', OnCloseModal);
 
-function toggleModal() {
-  modal.classList.toggle('is-hidden');
+function onOpenModal() {
+  window.addEventListener('keydown', onCloseModalFromKey);
+  backdrop.addEventListener('click', onCloseModalFromClick);
+  modal.classList.remove('is-hidden');
+}
+function OnCloseModal() {
+  window.removeEventListener('keydown', onCloseModalFromKey);
+  backdrop.removeEventListener('click', onCloseModalFromClick);
+  modal.classList.add('is-hidden');
+}
+function onCloseModalFromKey(event) {
+  if (event.code === 'Escape') {
+    modal.classList.add('is-hidden');
+  }
+}
+
+function onCloseModalFromClick(event) {
+  if (event.target === event.currentTarget) {
+    modal.classList.add('is-hidden');
+  }
 }
 
 const cards = document.querySelector('.card-wrapper');
