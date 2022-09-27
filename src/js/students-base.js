@@ -44,31 +44,31 @@ export const groupSeven = [
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
+    name: 'Mikhaylo Pobochikh',
+    description: 'Full Stuck Developer',
+  },
+  {
+    photo:
+      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
     name: 'Yuliya Zozulya',
     description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-21-590_640.jpg',
-    name: 'David Dell',
+    name: 'Pavel Bazilevich',
     description: 'Full Stuck Developer',
   },
   {
     photo:
       'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
-    name: 'David Dell',
+    name: 'Yurii Moskalenko',
     description: 'Full Stuck Developer',
   },
   {
     photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
-    name: 'David Dell',
-    description: 'Full Stuck Developer',
-  },
-  {
-    photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-21-590_640.jpg',
-    name: 'David Dell',
+      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
+    name: 'David David',
     description: 'Full Stuck Developer',
   },
 ];
