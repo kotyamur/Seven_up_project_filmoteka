@@ -39,6 +39,7 @@
 
 .poster__description {
   display: flex;
+  align-items: center;
 }
 .poster__year {
   margin-right: 15px;
@@ -52,7 +53,7 @@
   object-fit: contain;
 }
 
-.poster__text {
+.poster__title {
   text-transform: uppercase;
 }
 .poster__description {
@@ -77,6 +78,7 @@
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .poster__rating__text {
   color: #ffffff;
@@ -109,6 +111,17 @@
   @media screen and (min-width: 1280px) {
     width: calc((100% - 6 * 8px) / 3);
     margin: 8px;
+    margin-top: 32px;
+  }
+}
+
+.films__item:nth-child(-n + 3) {
+  margin-top: 0px;
+}
+
+.films__item:not(:first-child) {
+  @media screen and(max-width:767px) {
+    margin-top: 20px;
   }
 }
 
@@ -122,28 +135,12 @@
   border: 1px solid black;
 }
 
-//
-// @media screen and (min-width: 768px) {
-//   .films {
-//     display: flex;
-//     flex-wrap: wrap;
-//     margin: -16px;
-//   }
-//   .films__item {
-//     width: calc((100% - 4 * 16px) / 2);
-//     margin: 16px;
-//   }
-// }
-
-// @media screen and (min-width: 1280px) {
-//   .films {
-//     display: flex;
-//     flex-wrap: wrap;
-//     margin: -8px;
-//   }
-
-//   .films__item {
-//     width: calc((100% - 6 * 8px) / 3);
-//     margin: 8px;
-//   }
-// }
+.poster__title {
+  margin-top: 10px;
+  @media screen and (min-width: 768px) {
+    margin-top: 8px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 12px;
+  }
+}
