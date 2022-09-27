@@ -1,11 +1,13 @@
     .modal-movie {
       position: absolute;
-      padding: 48px 20px;
-      width: 280px;
-      background-color: #ffffff;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      width: 280px;
+      padding: 48px 20px 40px 20px;
+      background-color: #ffffff;
+      opacity: 1;
+      
       transition: transform 250ms ease, opacity 250ms ease;
 
     
@@ -20,22 +22,26 @@
     }
   
     }
-    
+  
     .modal__close-movie-btn {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 14px;
-      height: 14px;
+      top: 8px;
+      right: 8px;
+      width: 30px;
+      height: 30px;
       padding: 0;
-      background-color: transparent;
       border: 0;
-      cursor: pointer;
-    }
+      border-radius: 50%;
+      background-color: transparent;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url(/src/images/close-icon.png);
+      transition: background-color 250ms ease;
 
-    .modal__close-movie-icon {
-      width: 100%;
-      height: auto;
+      &:hover {
+        background-color: #FF6B01;
+      }
     }
   
     .modal__container {
