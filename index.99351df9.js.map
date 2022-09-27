@@ -1,1 +1,0 @@
-{"mappings":"gfAAAA,EAAA,S","sources":["src/index.js"],"sourcesContent":["import './js/api';\nimport './js/constants';\nimport './js/elements';\nimport './js/students-modal';\n"],"names":["parcelRequire"],"version":3,"file":"index.99351df9.js.map"}
