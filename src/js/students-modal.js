@@ -2,6 +2,7 @@ import { groupSeven } from '../js/students-base.js';
 import Swiper from 'swiper/swiper-bundle.min.js';
 // import Swiper styles
 import 'swiper/swiper-bundle.min.css';
+import '../sass/components/_modal_students.scss';
 
 const openModalBtn = document.querySelector('[data-students-modal-open]');
 const modal = document.querySelector('[data-students-modal]');
@@ -20,7 +21,6 @@ const makeCard = ({ photo, name, description }) => {
   return `
   <div class="swiper-slide card">
       <div class="image-content">
-        <span class="overlay"></span>
         <div class="card-image">
           <img src="${photo}" alt="" class="card-img" />
         </div>
@@ -30,7 +30,20 @@ const makeCard = ({ photo, name, description }) => {
         <p class="description">
           ${description}
         </p>
-        <button class="button">View More</button>
+         <ul class="social-links list">
+                <li class="social-links__item">
+                  <a class="social-links__link" href="">🐁</a>
+                </li>
+                <li class="social-links__item">
+                  <a class="social-links__link" href="">🕊</a>
+                </li>
+                <li class="social-links__item">
+                  <a class="social-links__link" href="">🐋</a>
+                </li>
+                <li class="social-links__item">
+                  <a class="social-links__link" href="">🦖</a>
+                </li>
+          </ul>
       </div>
     </div>
   `;

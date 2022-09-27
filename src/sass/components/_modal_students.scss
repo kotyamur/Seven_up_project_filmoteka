@@ -1,7 +1,7 @@
 .slide-container {
   max-width: 1120px;
   width: 100%;
-  padding: 40px 0;
+  padding: 0 0 40px 0;
 }
 .slide-content {
   margin: 0 40px;
@@ -22,22 +22,12 @@
 .image-content {
   position: relative;
   row-gap: 5px;
-  padding: 25px 0;
+  padding: 10px 0;
 }
-.overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #ff6b01;
-  border-radius: 25px 25px 25px 25px;
-}
-
 .card-image {
   position: relative;
-  height: 150px;
-  width: 150px;
+  height: 180px;
+  width: 180px;
   border-radius: 50%;
   background: #fff;
   padding: 3px;
@@ -53,25 +43,57 @@
   font-size: 18px;
   font-weight: 500;
   color: #333;
+  margin: 0;
+
+  margin-bottom: 10px;
 }
 .description {
   font-size: 14px;
   color: #707070;
   text-align: center;
+
+  margin: 0;
+  margin-bottom: 10px;
 }
-.button {
-  border: none;
-  font-size: 16px;
-  color: #fff;
-  padding: 8px 16px;
-  background-color: #ff6b01;
-  border-radius: 6px;
-  margin: 14px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 24px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.button:hover {
-  background: #fc964d;
+
+.social-links__item {
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.social-links__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  width: 44px;
+  margin-bottom: 0px;
+
+  fill: var(--icon-bg-color);
+  border-radius: 5px;
+  background-color: #f7f7f7;
+
+  transition: background-color 250ms ease, fill 250ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: #ff6b01;
+
+    fill: var(--primary-white-color);
+  }
 }
 
 .swiper-navBtn {
@@ -79,19 +101,26 @@
   transition: color 0.3s ease;
 }
 .swiper-navBtn:hover {
-  color: #ff6b01;
+  color: #512201;
 }
 .swiper-navBtn::before,
 .swiper-navBtn::after {
   font-size: 35px;
+  color: #ff6b01;
+  transition: color 0.3s ease;
 }
+.swiper-navBtn:hover::before,
+.swiper-navBtn:hover::after {
+  color: #ff984e;
+}
+
 .swiper-button-next {
   right: 0;
-  color: #512201;
+  top: 220px;
 }
 .swiper-button-prev {
   left: 0;
-  color: #512201;
+  top: 220px;
 }
 .swiper-pagination-bullet {
   background-color: #ff9243;
@@ -104,9 +133,6 @@
 @media screen and (max-width: 768px) {
   .slide-content {
     margin: 0 10px;
-  }
-  .swiper-navBtn {
-    display: none;
   }
 }
 
@@ -143,13 +169,11 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   width: 100%;
-  padding: 40px;
+  padding: 40px 12px 20px 12px;
 
   opacity: 1;
   background-color: white;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  border-radius: 0px;
 
   transition: transform 250ms ease, opacity 250ms ease;
 
@@ -175,6 +199,7 @@
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  cursor: pointer;
 
   transition: fill 250ms ease;
 
