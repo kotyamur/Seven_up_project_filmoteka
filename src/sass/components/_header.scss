@@ -6,7 +6,11 @@
   padding-bottom: 94px;
 
   @media screen and (min-width: 768px) {
-    background-image: url(../images/header-img-tablet.jpg);
+    background-image: url('../images/header-img-tablet.jpg');
+    padding-bottom: 81px;
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url('../images/header-img-desktop.jpg');
   }
 }
 
@@ -17,19 +21,29 @@
     background-image: url('../images/header-img-mobile-2x.jpg');
     background-size: cover;
     @media screen and (min-width: 768px) {
-      background-image: url(../images/header-img-tablet-2x.jpg);
+      background-image: url('../images/header-img-tablet-2x.jpg');
+    }
+    @media screen and (min-width: 1280px) {
+      background-image: url('../images/header-img-desktop-2x.jpg');
     }
   }
 }
 
 .logo {
   display: grid;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
 }
 .header__naviganion {
   display: flex;
   margin-bottom: 54px;
   justify-content: space-between;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 }
 
 .header__logo {
@@ -38,6 +52,10 @@
   line-height: 1.17;
   font-weight: 500;
   display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin-left: 8px;
+  }
 }
 .header__navigation-list {
   display: flex;
@@ -60,6 +78,13 @@
 .search__field {
   border-bottom: 0.5px solid #ffffff;
   // margin-bottom: 92px;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    margin: auto;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 394px;
+  }
 }
 .search__input {
   // background-color: opacity($color: #000000);
