@@ -1,0 +1,27 @@
+
+.header-lib {
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 320px;
+  min-height: 230px;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(/src/images/header-lib-320.jpg);
+  background-color: #000000;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+   @media screen and (min-width: 768px){
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(/src/images/header-lib-768.jpg);
+   }
+
+    @media screen and (min-width: 1280px) {
+         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(/src/images/header-lib-1024.jpg);
+   }
+    
+}
