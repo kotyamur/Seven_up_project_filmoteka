@@ -1,4 +1,5 @@
 .header {
+  height: 216px;
   background-image: url('../images/header-img-mobile.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -91,7 +92,7 @@
 .header__navigation-item {
   margin-left: 40px;
 }
-.form {
+.form__input {
   display: flex;
   justify-content: space-between;
 }
@@ -128,7 +129,7 @@
     color: #ffffff;
   }
 }
-.search_btn {
+.search__btn {
   background: transparent;
   // &::before {
   //   content: '';
@@ -156,7 +157,7 @@
   font-weight: 400;
   color: rgba(255, 0, 27, 1);
 }
-.searh__error {
+.search__error {
   @media screen and (min-width: 768px) {
     display: flex;
 
