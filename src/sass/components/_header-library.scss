@@ -38,6 +38,11 @@
  grid-row: 
  'logo title menu'
  'btn btn';
+
+
+    //  display: flex;
+    // justify-content: space-between;
+    // align-items: baseline
 }
 
 
@@ -68,22 +73,22 @@ grid-area: title;
     margin-left: 8px;
   }
 }
-//  .header__lb-menu{
-//      grid-area: menu;
-//  }
+ .header__lb-menu{
+     grid-area: menu;
+ }
 
-// .header__lb-link {
-//  color: #ffffff;
-//   line-height: 1.17;
-//   text-transform: uppercase;
-//   margin-top: 44px;
+.header__lb-link {
+ color: #ffffff;
+  line-height: 1.17;
+  text-transform: uppercase;
+  margin-top: 44px;
 
-// }
+}
 
-// .header__lb-item {
-//   margin-left: 40px;
+.header__lb-item {
+  margin-left: 40px;
   
-// }
+}
 
 .header-btn__conteiner {
   grid-area: btn;
