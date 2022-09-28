@@ -16,9 +16,8 @@ function onFilmCardClick(evt) {
   }
   backdropEl.classList.remove('is-hidden');
   backdropFooterEl.classList.remove('is-hidden');
-  console.log(evt.target.closest('li').dataset.id) 
   fetchMovieData(evt.target.closest('li').dataset.id)
-  .then(data => {renderMovieModal(data)})
+  .then(renderMovieModal)
   .catch(error => {
   console.log(error);
 })
@@ -28,22 +27,25 @@ function onFilmCardClick(evt) {
 
 function fetchMovieData(movie_id) {
     return api.getSingleMovieByID(movie_id).then(response => {
+        console.log(response.data)
       return response.data;
     });
   }
-
-function renderMovieModal(data) {
-    const {
-        poster_path,
-        original_title,
-        title,
-        vote_average,
-        vote_count,
-        genres,
-        overview,
-        popularity
-      } = data
-  return `<img
+  
+function renderMovieModal({
+    poster_path,
+    original_title,
+    title,
+    vote_average,
+    vote_count,
+    genres,
+    overview,
+    popularity
+  }) {
+    const genresRender = genres.map(genre => {return genre.name}).join(', ')
+    console.log(genresRender)
+    const markUp = `<div class="modal__container">
+  <img
       class="modal__image"
       src="https://image.tmdb.org/t/p/w500${poster_path}"
       alt="${title}"
@@ -56,14 +58,14 @@ function renderMovieModal(data) {
         <div class="modal__features-issues">
           <p class="modal__keys">Vote / Votes</p>
           <div class="modal__values-box">
-            <p class="modal__value-numbers modal__value-numbers--accent">${vote_average}</p>
+            <p class="modal__value-numbers modal__value-numbers--accent">${vote_average.toFixed(1)}</p>
             <span class="modal__slash">/</span>
             <p class="modal__value-numbers modal__value-numbers--simple">${vote_count}</p>
           </div>
         </div>
         <div class="modal__features-issues">
           <p class="modal__keys">Popularity</p>
-          <p class="modal__value-numbers">${popularity}</p>
+          <p class="modal__value-numbers">${popularity.toFixed(1)}</p>
         </div>
         <div class="modal__features-issues">
           <p class="modal__keys">Original Title</p>
@@ -71,7 +73,7 @@ function renderMovieModal(data) {
         </div>
         <div class="modal__features-issues">
           <p class="modal__keys">Genre</p>
-          <p class="modal__value-text">${genres}</p>
+          <p class="modal__value-text">${genresRender}</p>
         </div>
       </div>
       <p class="modal__about-title">About</p>
@@ -82,9 +84,10 @@ function renderMovieModal(data) {
           <button class="modal__btn" type="button">add to queue</button>
         </div>
       </div>
-    </div>`;
+    </div>
+    </div>`
+    backdropEl.insertAdjacentHTML('beforeend', markUp)
 }
-backdropEl.insertAdjacentHTML('beforeend', renderMovieModal);
 
 const watchedBtn = document.querySelector('button[data-type="watched"]')
 const queueBtn = document.querySelector('button[data-type="queue"]')
@@ -104,14 +107,14 @@ function onQueueFilmsToSaveBtn (evt) {
     btnQueueTextContentToChange()
 }
 
-// function btnWatchedTextContentToChange() {
-//     watchedBtn.classList.contains('active') ?
-//     watchedBtn.textContent='remove from watched' :
-//     watchedBtn.textContent='add to watched'
-// }
+function btnWatchedTextContentToChange() {
+    watchedBtn.classList.contains('active') ?
+    watchedBtn.textContent='remove from watched' :
+    watchedBtn.textContent='add to watched'
+}
 
-// function btnQueueTextContentToChange() {
-//     queueBtn.classList.contains('active') ?
-//     queueBtn.textContent='remove from watched' :
-//     queueBtn.textContent='add to queue'
-// }
+function btnQueueTextContentToChange() {
+    queueBtn.classList.contains('active') ?
+    queueBtn.textContent='remove from watched' :
+    queueBtn.textContent='add to queue'
+}
