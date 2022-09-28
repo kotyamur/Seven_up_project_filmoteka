@@ -160,6 +160,7 @@
       margin: 0;
       line-height: 1.33;
       color: #8C8C8C;
+      flex-shrink: 0;
 
       @media screen and (min-width: 1280px) {
         width: 152px;
