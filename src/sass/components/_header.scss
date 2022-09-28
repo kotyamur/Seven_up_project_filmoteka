@@ -31,10 +31,22 @@
 
 .logo {
   display: grid;
+
+  scale: 1;
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
   }
+  &:hover {
+    scale: 1.1;
+    // box-shadow: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.logo__icon {
+  display: block;
+  stroke: white;
 }
 .header__naviganion {
   display: flex;
@@ -69,6 +81,11 @@
   line-height: 1.17;
   text-transform: uppercase;
   display: grid;
+  scale: 1;
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    scale: 1.1;
+  }
 }
 
 .header__navigation-item {
@@ -79,8 +96,9 @@
   justify-content: space-between;
 }
 .search__field {
-  border-bottom: 0.5px solid #ffffff;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 1);
   // margin-bottom: 92px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
     width: 336px;
     margin: auto;
@@ -88,9 +106,12 @@
   @media screen and (min-width: 1280px) {
     width: 394px;
   }
+  &:hover,
+  &:focus {
+    border-color: #ff001b;
+  }
 }
 .search__input {
-  // background-color: opacity($color: #000000);
   width: 100%;
   background: transparent;
   outline: none;
