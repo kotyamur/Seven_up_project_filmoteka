@@ -1,4 +1,4 @@
-.header .container {
+.header {
   background-image: url('../images/header-img-mobile.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,7 +17,7 @@
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .header .container {
+  .header {
     background-image: url('../images/header-img-mobile-2x.jpg');
     background-size: cover;
     @media screen and (min-width: 768px) {
@@ -55,6 +55,9 @@
   @media screen and (min-width: 768px) {
     display: block;
     margin-left: 8px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 10px;
   }
 }
 .header__navigation-list {
@@ -105,6 +108,13 @@
 }
 .search_btn {
   background: transparent;
+  // &::before {
+  //   content: '';
+  //   background-image: url('../images/search.png');
+  //   width: 12px;
+  //   height: 12px;
+  //   display: block;
+  // }
 }
 .current__underline::after {
   content: '';
@@ -115,6 +125,6 @@
   background-color: #ff001b;
 }
 .search__icon {
-  width: 100%;
-  height: auto;
+  width: 12px;
+  height: 12px;
 }
