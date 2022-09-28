@@ -1,9 +1,5 @@
 <div class="modal-movie is-hidden">
-  <button class="modal__close-movie-btn" type="button">
-    <svg class="modal__close-movie-icon" width="14" height="14">
-      <!-- <use href="./images/symbol-defs.svg#icon-arrow-up"></use> -->
-    </svg>
-  </button>
+  <button class="modal__close-movie-btn" type="button"></button>
   <div class="modal__container">
     <img
       class="modal__image"
@@ -42,8 +38,8 @@
       <p class="modal__about-text">Text</p>
       <div class="modal__bottom-thumb">
         <div class="modal__btn-box">
-          <button class="modal__btn" type="button">add to watched</button>
-          <button class="modal__btn" type="button">add to queue</button>
+          <button class="modal__btn" type="button" data-type="watched">add to watched</button>
+          <button class="modal__btn" type="button" data-type="queue">add to queue</button>
         </div>
       </div>
     </div>

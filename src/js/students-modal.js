@@ -58,7 +58,11 @@ const makeCard = ({ photo, name, description }) => {
         </p>
          <ul class="social-links list">
                 <li class="social-links__item">
-                  <a class="social-links__link" href="">🐁</a>
+                  <a class="social-links__link" href="">
+                  <svg class="social-links__icon" width="20" height="20">
+                      <use href="images/icons.svg#instagram"></use></svg
+                  >
+                  </a>
                 </li>
                 <li class="social-links__item">
                   <a class="social-links__link" href="">🕊</a>
