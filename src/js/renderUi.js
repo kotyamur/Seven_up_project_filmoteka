@@ -1,5 +1,6 @@
 import markupFilms from './markupFilms';
 import Api from './api';
+import { genre } from './genre';
 
 const refs = {
   search: document.querySelector('.form__input'),
@@ -24,8 +25,11 @@ function renderUi(result) {
 
 async function findRenderUi() {
   try {
+    await api.findGenre();
+    console.log(api.genre);
+
     const resultApi = await api.search();
-    console.log(api.totlaPages);
+    // console.log(api.totlaPages);
     renderUi(resultApi);
   } catch (error) {
     console.log(error);
