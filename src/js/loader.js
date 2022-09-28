@@ -1,7 +1,8 @@
 import {Spinner} from 'spin.js';
 
 
-var opts = {
+function loader(elements){
+const opts = {
   lines: 9, // The number of lines to draw
   length: 6, // The length of each line
   width: 10, // The line thickness
@@ -21,9 +22,8 @@ var opts = {
   className: 'spinner', // The CSS class to assign to the spinner
   position: 'absolute', // Element positioning
 };
-
 const target = document.getElementById('foo');
 const spinner = new Spinner(opts).spin(target);
-
-const spinnerLoader = new Spinner().spin();
-target.appendChild(spinnerLoader.el);
+target.appendChild(spinner.el);
+return spinner
+}
