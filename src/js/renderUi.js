@@ -25,9 +25,6 @@ function renderUi(result) {
 
 async function findRenderUi() {
   try {
-    await api.findGenre();
-    console.log(api.genre);
-
     const resultApi = await api.search();
     // console.log(api.totlaPages);
     renderUi(resultApi);
