@@ -4,7 +4,7 @@ import { genre } from './genre';
 
 const refs = {
   search: document.querySelector('.form__input'),
-  button: document.querySelector('.button__submit'),
+  button: document.querySelector('.search_btn'),
   gallery: document.querySelector('.gallery'),
   filmLsit: document.querySelector('.films'),
 };
