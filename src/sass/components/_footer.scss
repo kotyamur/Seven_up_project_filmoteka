@@ -34,4 +34,11 @@
 .footer-text-modal {
   text-decoration: underline;
   cursor: pointer;
+
+  transition: color var(--transition-duration) var(--timing-function);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
 }
