@@ -1,19 +1,25 @@
 <header class="header">
   <div class="container">
     <div class="header__naviganion">
-      <a href="" class="logo">
-        <svg width="24" height="24">
+      <a href="./index.html" class="logo">
+        <!-- <img  class="img" src="./images/film.png" alt="" width="24" height="24" /> -->
+        <svg class="logo__icon" width="24" height="24">
           <use href="/src/images/icons.svg#film"></use>
         </svg>
         <p class="header__logo">Filmoteka</p>
       </a>
-
       <ul class="header__navigation-list">
         <li class="header__navigation-item">
-          <a href="" class="header__navigation-link current__underline">Home</a>
+          <a
+            href="./index.html"
+            class="header__navigation-link current__underline"
+            >Home</a
+          >
         </li>
         <li class="header__navigation-item">
-          <a href="./library.html" class="header__navigation-link">my library</a>
+          <a href="./library.html" class="header__navigation-link"
+            >my library</a
+          >
         </li>
       </ul>
     </div>
@@ -25,10 +31,9 @@
           name="login"
           placeholder="Movie search"
         />
-
         <button class="search_btn" type="submit">
-          <svg width="12" height="12">
-            <use class="search__icon" href="/src/images/icons.svg#search"></use>
+          <svg class="search__icon">
+            <use href="/src/images/icons.svg#search"></use>
           </svg>
         </button>
       </form>
