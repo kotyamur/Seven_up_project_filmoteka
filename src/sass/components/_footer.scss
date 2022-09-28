@@ -1,5 +1,5 @@
 .footer {
-  background-color: #f7f7f7;
+  background-color: var(--background-color);
 }
 .footer-wrap {
   text-align: center;
@@ -34,4 +34,11 @@
 .footer-text-modal {
   text-decoration: underline;
   cursor: pointer;
+
+  transition: color var(--transition-duration) var(--timing-function);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
 }
