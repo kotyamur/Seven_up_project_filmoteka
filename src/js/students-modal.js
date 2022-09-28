@@ -5,7 +5,8 @@ import 'swiper/swiper-bundle.min.css';
 import '../sass/components/_modal_students.scss';
 
 const openModalBtn = document.querySelector('[data-students-modal-open]');
-const modal = document.querySelector('[data-students-modal]');
+const backdropFooter = document.querySelector('[data-backdrop]');
+const modalStudents = document.querySelector('.modal-students');
 const closeModalBtn = document.querySelector('[data-students-modal-close]');
 const backdrop = document.querySelector('.backdrop');
 
@@ -15,22 +16,28 @@ closeModalBtn.addEventListener('click', OnCloseModal);
 function onOpenModal() {
   window.addEventListener('keydown', onCloseModalFromKey);
   backdrop.addEventListener('click', onCloseModalFromClick);
-  modal.classList.remove('is-hidden');
+  backdropFooter.classList.remove('is-hidden');
+  modalStudents.classList.remove('is-hidden');
 }
+
 function OnCloseModal() {
   window.removeEventListener('keydown', onCloseModalFromKey);
   backdrop.removeEventListener('click', onCloseModalFromClick);
-  modal.classList.add('is-hidden');
+  backdropFooter.classList.add('is-hidden');
+  modalStudents.classList.add('is-hidden');
 }
+
 function onCloseModalFromKey(event) {
   if (event.code === 'Escape') {
-    modal.classList.add('is-hidden');
+    backdropFooter.classList.add('is-hidden');
+    modalStudents.classList.add('is-hidden');
   }
 }
 
 function onCloseModalFromClick(event) {
   if (event.target === event.currentTarget) {
-    modal.classList.add('is-hidden');
+    backdropFooter.classList.add('is-hidden');
+    modalStudents.classList.add('is-hidden');
   }
 }
 
@@ -51,7 +58,11 @@ const makeCard = ({ photo, name, description }) => {
         </p>
          <ul class="social-links list">
                 <li class="social-links__item">
-                  <a class="social-links__link" href="">🐁</a>
+                  <a class="social-links__link" href="">
+                  <svg class="social-links__icon" width="20" height="20">
+                      <use href="images/icons.svg#instagram"></use></svg
+                  >
+                  </a>
                 </li>
                 <li class="social-links__item">
                   <a class="social-links__link" href="">🕊</a>
