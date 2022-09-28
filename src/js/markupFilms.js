@@ -3,7 +3,7 @@ export default function markupFilms(results) {
     .map(
       ({ poster_path, original_title, vote_average, release_date, title }) => {
         const year = String(release_date).slice(0, 4);
-
+        
         return `<li class="films__item">
           <a href="" class="films__item-link">
             <div class="poster__thumb">
