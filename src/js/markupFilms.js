@@ -8,20 +8,21 @@ export default function markupFilms(results) {
         vote_average,
         release_date,
         title,
+        id,
         genre_ids,
       }) => {
         let arrayGenre = [];
         let url = 'https://image.tmdb.org/t/p/w500/';
         let year = String(release_date).slice(0, 4);
+
         if (poster_path === null) {
           url = 'https://i.postimg.cc/NF6QdzcX/no.jpg';
           poster_path = '';
         }
         if (release_date === '') {
-          console.log('no data');
           year = 'no information';
         }
-        if ((genre_ids = [])) {
+        if (genre_ids.length === 0) {
           arrayGenre.push('No information');
         }
         for (const gen of genre) {
@@ -31,7 +32,7 @@ export default function markupFilms(results) {
             }
           }
         }
-        return `<li class="films__item">
+        return `<li class="films__item" data-id=${id}>
           <a href="" class="films__item-link">
             <div class="poster__thumb">
               <img src="${url}${poster_path}" alt="${original_title}" class="poster__foto" />

@@ -51,4 +51,10 @@ export default class Api {
   set searchQuery(newQuery) {
     this.query = newQuery;
   }
+
+  getSingleMovieByID(movie_id) {
+    return axios.get(
+      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a97f5a48286213b4292b81d1cb5cf0d2`,
+    );
+  }
 }

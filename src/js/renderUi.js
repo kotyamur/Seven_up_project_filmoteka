@@ -4,7 +4,7 @@ import { genre } from './genre';
 
 const refs = {
   search: document.querySelector('.form__input'),
-  button: document.querySelector('.button__submit'),
+  button: document.querySelector('.search_btn'),
   gallery: document.querySelector('.gallery'),
   filmLsit: document.querySelector('.films'),
 };
@@ -25,9 +25,6 @@ function renderUi(result) {
 
 async function findRenderUi() {
   try {
-    await api.findGenre();
-    console.log(api.genre);
-
     const resultApi = await api.search();
     // console.log(api.totlaPages);
     renderUi(resultApi);
