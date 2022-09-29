@@ -21,8 +21,6 @@ function onSubmit(e) {
 
 function renderUi(result) {
   refs.filmLsit.insertAdjacentHTML('beforeend', markupFilms(result));
-  console.log(document.querySelector('spinner.el'))
-  // document.querySelector('.spinner').style.display = "none"
 }
 
 async function findRenderUi() {
