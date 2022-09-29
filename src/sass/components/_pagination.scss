@@ -42,10 +42,12 @@
     height: 40px;
     border-radius: 5px;
     color: var(--main-text-color);
+    stroke: var(--main-text-color);
     font-size: 12px;
     font-weight: 500;
     transition: all var(--transition-duration) var(--timing-function);
     &:hover {
+        stroke: var(--secondary-text-color);
         fill: var(--secondary-text-color);
         background: var(--accent-color);
         color: var(--secondary-text-color);
@@ -102,13 +104,13 @@
 //      background-image: none;
 // }
 
-.tui-pagination .tui-ico-first {
-    background-image: url(../images/arrow-prev.svg);
-}
+// .tui-pagination .tui-ico-first {
+//     background-image: url(../images/arrow-prev.svg);
+// }
 
-.tui-pagination .tui-ico-last {
-    background-image: url(../images/arrow-next.svg);
-}
+// .tui-pagination .tui-ico-last {
+//     background-image: url(../images/arrow-next.svg);
+// }
 
 .tui-pagination .tui-ico-ellip {
     height: 18px;
@@ -116,8 +118,8 @@
 
 .tui-pagination .tui-ico-first,
 .tui-pagination .tui-ico-last {
-    width: 100%;
-    height: 100%;
+    width: 16px;
+    height: 16px;
     background-repeat: no-repeat;
     background-position: center;
     transition: all var (--transition-duration) var(--timing-function);
