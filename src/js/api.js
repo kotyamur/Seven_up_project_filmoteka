@@ -40,7 +40,7 @@ export default class Api {
       baseURL: URL,
     });
 
-    const result = await api.get(`trending/all/week?${searchParams}`);
+    const result = await api.get(`trending/movie/week?${searchParams}`);
 
     this.totalResult = result.data.total_results;
     this.totlaPages = result.data.total_pages;
