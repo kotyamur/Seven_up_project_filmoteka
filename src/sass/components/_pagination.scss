@@ -1,0 +1,133 @@
+.tui-pagination {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+    @media screen and (min-width: 768px) {
+        margin: 50px 0 60px 0;
+    }
+}
+
+.tui-page-btn.tui-prev.hide-prev,
+.tui-page-btn.tui-first.tui-is-disabled,
+.tui-page-btn.tui-next.hide-next,
+.tui-page-btn.tui-last.tui-is-disabled,
+.tui-page-btn.tui-next-is-ellip.change-next,
+.tui-page-btn.tui-prev-is-ellip.change-prev {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .tui-page-btn.tui-next-is-ellip.change-next,
+    .tui-page-btn.tui-prev-is-ellip.change-prev {
+        display: flex;
+    }
+}
+
+.tui-pagination .tui-next {
+    margin-left: 0;
+}
+
+.tui-pagination .tui-prev {
+    margin-right: 0;
+}
+
+.tui-pagination .tui-page-btn {
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--main-text-color);
+    font-size: 12px;
+    font-weight: 500;
+    transition: all var(--transition-duration) var(--timing-function);
+    &:hover {
+        fill: var(--secondary-text-color);
+        background: var(--accent-color);
+        color: var(--secondary-text-color);
+    }
+}
+
+.tui-pagination .tui-is-selected {
+    color: var(--secondary-text-color);
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.tui-pagination .tui-is-disabled:hover {
+    background: transparent;
+    border: none;
+}
+
+.tui-pagination .hide-first,
+.tui-pagination .hide-last {
+    background: var(--background-color);
+}
+
+.tui-pagination .tui-first-is-ellip:hover,
+.tui-pagination .tui-last-is-ellip:hover,
+.tui-pagination .hide-last:hover,
+.tui-pagination .hide-first:hover {
+    background: var(--accent-color);
+}
+
+.tui-pagination .tui-prev-is-ellip:hover > .tui-ico-ellip,
+.tui-pagination .tui-next-is-ellip:hover > .tui-ico-ellip,
+.tui-pagination .hide-first:hover > .tui-ico-first,
+.tui-pagination .hide-last:hover > .tui-ico-last {
+    fill: var(--secondary-text-color);
+}
+
+.tui-pagination .tui-is-selected:hover {
+    background: var(--accent-color);
+}
+
+.tui-pagination .tui-ico-ellip {
+    margin-top: 0;
+}
+
+.tui-pagination .tui-first-child.tui-is-selected {
+    border-left: none;
+}
+
+// .tui-pagination .tui-ico-prev,
+// .tui-pagination .tui-ico-next,
+// .tui-pagination .tui-ico-first,
+// .tui-pagination .tui-ico-last,
+// .tui-pagination .tui-ico-ellip {
+//      background-image: none;
+// }
+
+.tui-pagination .tui-ico-first {
+    background-image: url(../images/arrow-prev.svg);
+}
+
+.tui-pagination .tui-ico-last {
+    background-image: url(../images/arrow-next.svg);
+}
+
+.tui-pagination .tui-ico-ellip {
+    height: 18px;
+}
+
+.tui-pagination .tui-ico-first,
+.tui-pagination .tui-ico-last {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all var (--transition-duration) var(--timing-function);
+}
+
+.tui-ico-first:hover,
+.tui-ico-last:hover {
+    fill: var(--secondary-text-color);
+} 
+
+.tui-pagination .tui-last-child.tui-is-selected {
+    border-right: 1px solid var(--accent-color);
+}

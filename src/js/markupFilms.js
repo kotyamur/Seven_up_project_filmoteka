@@ -8,6 +8,7 @@ export default function markupFilms(results) {
         vote_average,
         release_date,
         title,
+        id,
         genre_ids,
       }) => {
         let arrayGenre = [];
@@ -31,7 +32,7 @@ export default function markupFilms(results) {
             }
           }
         }
-        return `<li class="films__item">
+        return `<li class="films__item" data-id=${id}>
           <a href="" class="films__item-link">
             <div class="poster__thumb">
               <img src="${url}${poster_path}" alt="${original_title}" class="poster__foto" />
