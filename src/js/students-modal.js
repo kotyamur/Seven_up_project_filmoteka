@@ -87,6 +87,7 @@ const swiper = new Swiper('.slide-container', {
   spaceBetween: 30,
 
   loop: true,
+  loopFillGroupWithBlank: true,
   centerSlide: 'true',
   fade: 'true',
   grabCursor: 'true',
