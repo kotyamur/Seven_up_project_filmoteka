@@ -10,7 +10,7 @@ export const groupSeven = [
     description: 'Scram Master',
   },
   {
-    photo: 'https://simp4.jpg.church/P10818-190306.jpg',
+    photo: 'https://simp4.jpg.church/P10818-190306.md.jpg',
     name: 'Oleksandr Shkola',
     description: 'Full Stack Developer',
   },
@@ -20,14 +20,12 @@ export const groupSeven = [
     description: 'Full Stack Developer',
   },
   {
-    photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
+    photo: 'https://simp4.jpg.church/20220929_181331.jpg',
     name: 'Ilya Studennikov',
     description: 'Full Stack Developer',
   },
   {
-    photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-21-590_640.jpg',
+    photo: 'https://simp4.jpg.church/IMG_20220929_182455.md.jpg',
     name: 'Iryna Lazarieva',
     description: 'Full Stack Developer',
   },
@@ -42,7 +40,7 @@ export const groupSeven = [
     description: 'Full Stack Developer',
   },
   {
-    photo: 'https://simp4.jpg.church/IMG_1541c30837482b2e3631.jpg',
+    photo: 'https://simp4.jpg.church/IMG_1541c30837482b2e3631.md.jpg',
     name: 'Yuliya Zozulya',
     description: 'Full Stack Developer',
   },
