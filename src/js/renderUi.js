@@ -2,6 +2,7 @@ import markupFilms from './markupFilms';
 import Api from './api';
 import { genre } from './genre';
 import { loader } from './loader';
+import { renderPagination } from './pagination';
 
 const refs = {
   search: document.querySelector('.form__input'),
@@ -23,8 +24,8 @@ function onSubmit(e) {
   findRenderUi();
 }
 
-function renderUi(result) {
-  refs.filmLsit.insertAdjacentHTML('beforeend', markupFilms(result));
+export function renderUi(result) {
+  refs.filmLsit.innerHTML = markupFilms(result);
 }
 
 async function findRenderUi() {
@@ -36,6 +37,7 @@ async function findRenderUi() {
 
     // console.log(api.totlaPages);
     renderUi(resultApi);
+    renderPagination(api, renderUi, 'search');
   } catch (error) {
     console.log(error);
   }

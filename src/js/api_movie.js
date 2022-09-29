@@ -137,6 +137,7 @@ function modalMovieClose() {
   backdropMovie.removeEventListener('click', onCloseModalMovieFromClick);
   backdropFooterEl.classList.add('is-hidden');
   backdropEl.classList.add('is-hidden');
+  document.body.style.overflow = '';
   modalContainer.innerHTML = '';
 }
 
@@ -144,6 +145,7 @@ function onCloseModalMovieFromKey(event) {
   if (event.code === 'Escape') {
     backdropFooterEl.classList.add('is-hidden');
     backdropEl.classList.add('is-hidden');
+    document.body.style.overflow = '';
   }
 }
 
@@ -151,5 +153,6 @@ function onCloseModalMovieFromClick(event) {
   if (event.target === event.currentTarget) {
     backdropFooterEl.classList.add('is-hidden');
     backdropEl.classList.add('is-hidden');
+    document.body.style.overflow = '';
   }
 }

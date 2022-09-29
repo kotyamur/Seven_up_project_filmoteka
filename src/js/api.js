@@ -30,6 +30,24 @@ export default class Api {
     return result.data.results;
   }
 
+  async searchPopular() {
+    const searchParams = new URLSearchParams({
+      api_key: APIKEY,
+      page: this.page,
+    });
+
+    const api = axios.create({
+      baseURL: URL,
+    });
+
+    const result = await api.get(`trending/all/week?${searchParams}`);
+
+    this.totalResult = result.data.total_results;
+    this.totlaPages = result.data.total_pages;
+
+    return result.data.results;
+  }
+
   async findGenre() {
     const api = axios.create({
       baseURL: URL,
