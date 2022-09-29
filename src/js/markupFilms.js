@@ -42,7 +42,7 @@ export default function markupFilms(results) {
                   <div class="poster__description">
                 <p class="poster__genre">${arrayGenre}</p>
                 <p class="poster__year">${year}</p>
-                <p class="poster__rating"><span class="poster__rating__text">${vote_average}</span></p>
+                
                 </div>
               </div>
 
