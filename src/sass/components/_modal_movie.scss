@@ -98,7 +98,14 @@
     }
   
     .modal__features-box {
+      width: 240px;
       margin-bottom: 20px;
+      @media screen and (min-width: 768px) {
+        width: 264px;
+        }
+      @media screen and (min-width: 1280px) {
+        width: 391px;
+        } 
     }
      
    .modal__about-title, .modal__about-text {
@@ -145,7 +152,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 16px;
+      min-height: 16px;
     }
   
     .modal__keys {
@@ -153,6 +160,7 @@
       margin: 0;
       line-height: 1.33;
       color: #8C8C8C;
+      flex-shrink: 0;
 
       @media screen and (min-width: 1280px) {
         width: 152px;
