@@ -5,8 +5,9 @@ const refs = {
   filmLsit: document.querySelector('.films'),
 };
 
-const API_KEY = 'a97f5a48286213b4292b81d1cb5cf0d2';
 const API_URL = 'https://api.themoviedb.org/3';
+const API_KEY = 'a97f5a48286213b4292b81d1cb5cf0d2';
+
   
 
 async function sortTopFilmh() {
