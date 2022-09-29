@@ -3,5 +3,7 @@ import './js/constants';
 import './js/elements';
 import './js/students-modal';
 import './js/renderUi';
-import './js/api_movie';
+import './js/watchedFilmsLS';
 import './js/loader';
+import './js/pagination';
+
