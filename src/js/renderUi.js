@@ -1,9 +1,10 @@
 import markupFilms from './markupFilms';
 import Api from './api';
+import { genre } from './genre';
 
 const refs = {
   search: document.querySelector('.form__input'),
-  button: document.querySelector('.button__submit'),
+  button: document.querySelector('.search_btn'),
   gallery: document.querySelector('.gallery'),
   filmLsit: document.querySelector('.films'),
 };
@@ -25,7 +26,7 @@ function renderUi(result) {
 async function findRenderUi() {
   try {
     const resultApi = await api.search();
-    console.log(api.totlaPages);
+    // console.log(api.totlaPages);
     renderUi(resultApi);
   } catch (error) {
     console.log(error);
