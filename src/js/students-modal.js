@@ -58,19 +58,19 @@ const makeCard = ({ photo, name, description }) => {
         </p>
          <ul class="social-links list">
                 <li class="social-links__item">
-                  <a class="social-links__link instagram-icon" href="">
+                  <a class="social-links__link instagram-icon" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer nofollow">
                   </a>
                 </li>
                 <li class="social-links__item">
-                  <a class="social-links__link twitter-icon" href="">
+                  <a class="social-links__link twitter-icon" href="https://twitter.com/" target="_blank" rel="noopener noreferrer nofollow">
                   </a>
                 </li>
                 <li class="social-links__item">
-                  <a class="social-links__link facebook-icon" href="">
+                  <a class="social-links__link facebook-icon" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer nofollow">
                   </a>
                 </li>
                 <li class="social-links__item">
-                  <a class="social-links__link linkedin-icon" href="">
+                  <a class="social-links__link linkedin-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer nofollow">
                   </a>
                 </li>
           </ul>
