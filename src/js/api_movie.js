@@ -17,6 +17,7 @@ function onFilmCardClick(evt) {
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
+  document.body.style.overflow = 'hidden';
   window.addEventListener('keydown', onCloseModalMovieFromKey);
   backdropMovie.addEventListener('click', onCloseModalMovieFromClick);
   backdropEl.classList.remove('is-hidden');
@@ -131,6 +132,7 @@ const closeModalMovieBtn = document.querySelector('.modal-movie__close-button');
 closeModalMovieBtn.addEventListener('click', modalMovieClose);
 
 function modalMovieClose() {
+  document.body.style.overflow = '';
   window.removeEventListener('keydown', onCloseModalMovieFromKey);
   backdropMovie.removeEventListener('click', onCloseModalMovieFromClick);
   backdropFooterEl.classList.add('is-hidden');
