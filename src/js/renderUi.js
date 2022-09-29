@@ -1,6 +1,7 @@
 import markupFilms from './markupFilms';
 import Api from './api';
 import { genre } from './genre';
+import { loader } from './loader';
 
 const refs = {
   search: document.querySelector('.form__input'),
@@ -16,6 +17,7 @@ refs.search.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
+  loader();
   refs.filmLsit.innerHTML = '';
   api.searchQuery = e.currentTarget.elements.searchQuery.value;
   findRenderUi();
