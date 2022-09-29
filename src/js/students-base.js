@@ -5,8 +5,7 @@ export const groupSeven = [
     description: 'Team Lead',
   },
   {
-    photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
+    photo: 'https://simp4.jpg.church/IMG_20220928_145333_370.jpg',
     name: 'Yuliya Khanenko',
     description: 'Scram Master',
   },
@@ -16,8 +15,7 @@ export const groupSeven = [
     description: 'Full Stuck Developer',
   },
   {
-    photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
+    photo: 'https://simp4.jpg.church/photo_2022-09-29_13-38-29.jpg',
     name: 'Vladimir Ponomarov',
     description: 'Full Stuck Developer',
   },
@@ -44,27 +42,20 @@ export const groupSeven = [
     description: 'Full Stuck Developer',
   },
   {
-    photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-15-514_640.jpg',
+    photo: 'https://simp4.jpg.church/IMG_1541c30837482b2e3631.jpg',
     name: 'Yuliya Zozulya',
     description: 'Full Stuck Developer',
   },
   {
     photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-21-590_640.jpg',
+      'https://simp4.jpg.church/T03L32N8Q9X-U03KTPCL6S2-e12a46a05308-512.jpg',
     name: 'Pavel Bazilevich',
     description: 'Full Stuck Developer',
   },
   {
     photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
+      'https://simp4.jpg.church/T03L32N8Q9X-U03L12KLZ29-f99b6f1ca001-512.jpg',
     name: 'Yurii Moskalenko',
-    description: 'Full Stuck Developer',
-  },
-  {
-    photo:
-      'https://cdn.pixabay.com/photo/2022/09/25/10/08/10-08-11-613_640.jpg',
-    name: 'David David',
     description: 'Full Stuck Developer',
   },
 ];

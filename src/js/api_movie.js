@@ -127,11 +127,10 @@ function modalBtnsToChange() {
 
 function modalClose() {
   backdropEl.classList.add('is-hidden');
-  }
-
-
-function closeByButton() {
-  const modalCloseBtn = document.querySelector('.modal__close-movie-btn');
-  modalCloseBtn.addEventListener('click', modalClose);
 }
-closeByButton();
+
+// function closeByButton() {
+//   const modalCloseBtn = document.querySelector('.modal__close-movie-btn');
+//   modalCloseBtn.addEventListener('click', modalClose);
+// }
+// closeByButton();

@@ -100,6 +100,27 @@
 
     fill: var(--primary-white-color);
   }
+
+  &.instagram-icon,
+  &.twitter-icon,
+  &.facebook-icon,
+  &.linkedin-icon {
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.instagram-icon {
+    background-image: url(/src/images/instagram.svg);
+  }
+  &.twitter-icon {
+    background-image: url(/src/images/twitter.svg);
+  }
+  &.facebook-icon {
+    background-image: url(/src/images/facebook.svg);
+  }
+  &.linkedin-icon {
+    background-image: url(/src/images/linkedin.svg);
+  }
 }
 
 .swiper-navBtn {
