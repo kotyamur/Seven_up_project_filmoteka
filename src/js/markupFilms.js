@@ -32,6 +32,11 @@ export default function markupFilms(results) {
             }
           }
         }
+        if (arrayGenre.length > 2) {
+          console.log('more 2');
+          arrayGenre = arrayGenre.slice(0, 2);
+          arrayGenre.push('Other');
+        }
         return `<li class="films__item" data-id=${id}>
           <a href="" class="films__item-link">
             <div class="poster__thumb">
@@ -42,7 +47,7 @@ export default function markupFilms(results) {
                   <div class="poster__description">
                 <p class="poster__genre">${arrayGenre}</p>
                 <p class="poster__year">${year}</p>
-                <p class="poster__rating"><span class="poster__rating__text">${vote_average}</span></p>
+                
                 </div>
               </div>
 

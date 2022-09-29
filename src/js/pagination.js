@@ -1,7 +1,8 @@
 import Pagination from 'tui-pagination';
+import icons from '../images/icons.svg';
 // import 'tui-pagination/dist/tui-pagination.css';
 
-const arrowIcon = '';
+const arrowIcon = `${icons}#arrow`;
 
 const options = {
   totalItems: 100,
@@ -18,7 +19,7 @@ const options = {
       '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}} hide-{{type}}">' +
-      `<span class="tui-ico-{{type}}"></span>` +
+      `<svg class="tui-ico-{{type}}" width="16" height="16"><use href="${arrowIcon}-{{type}}"></use></svg>` +
       '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
