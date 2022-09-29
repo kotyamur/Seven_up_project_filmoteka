@@ -1,25 +1,26 @@
-import axios from 'axios';
 import markupFilms from './markupFilms';
-let pageNumber = 1;
+import Api from './api';
+import { renderUi } from './renderUi';
+import { renderPagination } from './pagination';
+
 const refs = {
   filmLsit: document.querySelector('.films'),
 };
 
-const API_URL = 'https://api.themoviedb.org/3';
-const API_KEY = 'a97f5a48286213b4292b81d1cb5cf0d2';
-
-  
+const api = new Api();
 
 async function sortTopFilmh() {
-  try{
+  try {
     refs.filmLsit.innerHTML = '';
-    const response = await axios.get(`${API_URL}/trending/all/week?api_key=${API_KEY}&page=${pageNumber}`); 
-    const arrFilm = response.data.results
-    const sortArrFilm = arrFilm.sort( (firstReting, secondRating) =>  secondRating.vote_average - firstReting.vote_average)
-    refs.filmLsit.insertAdjacentHTML('beforeend', markupFilms(sortArrFilm));
+    const response = await api.searchPopular();
+    const sortArrFilm = response.sort(
+      (firstReting, secondRating) =>
+        secondRating.vote_average - firstReting.vote_average
+    );
+    renderUi(sortArrFilm);
+    renderPagination(api, renderUi, 'searchPopular');
+  } catch (error) {
+    console.log(error);
   }
-  catch{
-    console.log(error)
-  }  
-  }
-  sortTopFilmh()
+}
+sortTopFilmh();

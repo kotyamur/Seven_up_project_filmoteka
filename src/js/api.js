@@ -8,12 +8,14 @@ export default class Api {
     this.totalResult = '';
     this.totlaPages = '';
     this.genre = [];
+    this.page = 1;
   }
 
   async search() {
     const searchParams = new URLSearchParams({
       api_key: APIKEY,
       query: this.query,
+      page: this.page,
     });
 
     const api = axios.create({
@@ -21,6 +23,24 @@ export default class Api {
     });
 
     const result = await api.get(`search/movie?${searchParams}`);
+
+    this.totalResult = result.data.total_results;
+    this.totlaPages = result.data.total_pages;
+
+    return result.data.results;
+  }
+
+  async searchPopular() {
+    const searchParams = new URLSearchParams({
+      api_key: APIKEY,
+      page: this.page,
+    });
+
+    const api = axios.create({
+      baseURL: URL,
+    });
+
+    const result = await api.get(`trending/all/week?${searchParams}`);
 
     this.totalResult = result.data.total_results;
     this.totlaPages = result.data.total_pages;
