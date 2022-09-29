@@ -4,8 +4,9 @@ import Api from './api';
 
 const filmsContainer = document.querySelector('.films');
 const backdropEl = document.querySelector('.modal-movie');
-const bodyEl = document.querySelector('.body');
+const modalContainer = document.querySelector('.modal__container');
 const backdropFooterEl = document.querySelector('[data-backdrop]');
+const backdropMovie = document.querySelector('.backdrop');
 
 const api = new Api();
 
@@ -16,6 +17,8 @@ function onFilmCardClick(evt) {
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
+  window.addEventListener('keydown', onCloseModalMovieFromKey);
+  backdropMovie.addEventListener('click', onCloseModalMovieFromClick);
   backdropEl.classList.remove('is-hidden');
   backdropFooterEl.classList.remove('is-hidden');
   fetchMovieData(evt.target.closest('li').dataset.id)
@@ -27,7 +30,6 @@ function onFilmCardClick(evt) {
 }
 function fetchMovieData(movie_id) {
   return api.getSingleMovieByID(movie_id).then(response => {
-    console.log(response.data);
     return response.data;
   });
 }
@@ -47,8 +49,7 @@ function renderMovieModal({
       return genre.name;
     })
     .join(', ');
-  console.log(genresRender);
-  const markUp = `<div class="modal__container">
+  const markUp = `
   <img
       class="modal__image"
       src="https://image.tmdb.org/t/p/w500${poster_path}"
@@ -90,11 +91,12 @@ function renderMovieModal({
         <button class="modal__btn" type="button" data-type="queue">add to queue</button>
         </div>
       </div>
-    </div>
+   
     </div>`;
-  backdropEl.insertAdjacentHTML('beforeend', markUp);
+  modalContainer.innerHTML = markUp;
   modalBtnsToChange();
 }
+
 function modalBtnsToChange() {
   const watchedBtn = document.querySelector('button[data-type="watched"]');
   const queueBtn = document.querySelector('button[data-type="queue"]');
@@ -125,12 +127,27 @@ function modalBtnsToChange() {
   }
 }
 
-function modalClose() {
+const closeModalMovieBtn = document.querySelector('.modal-movie__close-button');
+closeModalMovieBtn.addEventListener('click', modalMovieClose);
+
+function modalMovieClose() {
+  window.removeEventListener('keydown', onCloseModalMovieFromKey);
+  backdropMovie.removeEventListener('click', onCloseModalMovieFromClick);
+  backdropFooterEl.classList.add('is-hidden');
   backdropEl.classList.add('is-hidden');
+  modalContainer.innerHTML = '';
 }
 
-// function closeByButton() {
-//   const modalCloseBtn = document.querySelector('.modal__close-movie-btn');
-//   modalCloseBtn.addEventListener('click', modalClose);
-// }
-// closeByButton();
+function onCloseModalMovieFromKey(event) {
+  if (event.code === 'Escape') {
+    backdropFooterEl.classList.add('is-hidden');
+    backdropEl.classList.add('is-hidden');
+  }
+}
+
+function onCloseModalMovieFromClick(event) {
+  if (event.target === event.currentTarget) {
+    backdropFooterEl.classList.add('is-hidden');
+    backdropEl.classList.add('is-hidden');
+  }
+}
