@@ -22,13 +22,15 @@ export default function markupFilms(results) {
         if (release_date === '') {
           year = 'no information';
         }
-        if (genre_ids.length === 0) {
+        if (genre_ids?.length === 0) {
           arrayGenre.push('No information');
         }
         for (const gen of genre) {
-          for (const id of genre_ids) {
-            if (id === gen.id) {
-              arrayGenre.push(gen.name);
+          if (genre_ids) {
+            for (const id of genre_ids) {
+              if (id === gen.id) {
+                arrayGenre.push(gen.name);
+              }
             }
           }
         }
