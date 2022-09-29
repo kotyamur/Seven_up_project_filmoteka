@@ -5,10 +5,10 @@
       transform: translateX(-50%) scale(1);
       width: 280px;
       padding: 48px 20px 40px 20px;
-      background-color: #ffffff;
+      background-color: var(--secondary-text-color);
       opacity: 1;
       
-      transition: transform 250ms ease, opacity 250ms ease;
+      transition: transform var(--transition-duration) ease, opacity var(--transition-duration) ease;
     
       @media screen and (min-width: 768px) {
         top: 50%;
@@ -29,20 +29,20 @@
       position: absolute;
       top: 8px;
       right: 8px;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 30px;
       height: 30px;
-      padding: 0;
-      border: 0;
-      border-radius: 50%;
-      background-color: transparent;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-image: url(/src/images/close-icon.png);
-      transition: background-color 250ms ease;
-
+      background-color: var(--secondary-text-color);
+      cursor: pointer;
+      fill: var(--main-text-color);
+    
+      transition: fill var(--transition-duration) var(--timing-function);
+    
       &:hover {
-        background-color: #FF6B01;
+        fill: var(--accent-color);
       }
     }
   
@@ -88,7 +88,7 @@
       font-weight: 500;
       font-size: 20px;
       line-height: 1.15;
-      color: #000000;
+      color: var(--main-text-color);
   
       @media screen and (min-width: 1280px) {
         font-size: 30px;
@@ -98,7 +98,14 @@
     }
   
     .modal__features-box {
+      width: 240px;
       margin-bottom: 20px;
+      @media screen and (min-width: 768px) {
+        width: 264px;
+        }
+      @media screen and (min-width: 1280px) {
+        width: 391px;
+        } 
     }
      
    .modal__about-title, .modal__about-text {
@@ -109,7 +116,7 @@
     .modal__slash {
       margin-right: 3px;
       line-height: 1.33;
-      color: #8C8C8C;
+      color: var(--secondary-background-color);
     }
   
     .modal__value-numbers--accent, 
@@ -123,13 +130,13 @@
   
     .modal__value-numbers.modal__value-numbers--accent {
       margin-right: 3px;
-      background-color: #FF6B01;
-      color: #ffffff;
+      background-color: var(--accent-color);
+      color: var(--secondary-text-color);
     }
   
     .modal__value-numbers--simple {
-      background-color: #F7F7F7;
-      color: #000000;
+      background-color: var(--background-color);
+      color: var(--main-text-color);
     }
   
     .modal__features-issues {
@@ -145,14 +152,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 16px;
+      min-height: 16px;
     }
   
     .modal__keys {
       width: 108px;
       margin: 0;
       line-height: 1.33;
-      color: #8C8C8C;
+      color: var(--secondary-background-color);
+      flex-shrink: 0;
 
       @media screen and (min-width: 1280px) {
         width: 152px;
@@ -162,7 +170,7 @@
     .modal__value-text {
       margin: 0;
       line-height: 1.33;
-      color: #000000;
+      color: var(--main-text-color);
     }
   
     .modal__value--main-text {
@@ -179,14 +187,14 @@
       margin-bottom: 8px;
       text-transform: uppercase;
       line-height: 1.33;
-      color: #000000;
+      color: var(--main-text-color);
     }
     
     .modal__about-text {
       margin-top: 0;
       margin-bottom: 20px;
       line-height: 1.67;
-      color: #000000;
+      color: var(--main-text-color);
     }
   
     .modal__bottom-thumb {
@@ -212,14 +220,14 @@
       height: 44px;
       padding: 0;
       line-height: 1.33;
-      border: 1px solid #000000;
+      border: 1px solid var(--main-text-color);
       border-radius: 5px;
       text-transform: uppercase;
-      background-color: #ffffff;
-      color: #000000;
-      transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: var(--secondary-text-color);
+      color: var(--main-text-color);
+      transition: color var(--transition-duration) var(--timing-function), 
+      background-color var(--transition-duration) var(--timing-function),
+      border-color var(--transition-duration) var(--timing-function);
   
       @media screen and (min-width: 768px) {
         width: 125.03px;
@@ -234,8 +242,8 @@
     }
   
     &:hover {
-      background-color: #FF6B01;
+      background-color: var(--accent-color);
       border-color: transparent;
-      color: #ffffff;
+      color: var(--secondary-text-color);
     }
     }
