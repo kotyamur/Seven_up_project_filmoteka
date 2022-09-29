@@ -88,8 +88,8 @@ function renderMovieModal({
       <p class="modal__about-text">${overview}</p>
       <div class="modal__bottom-thumb">
         <div class="modal__btn-box">
-        <button class="modal__btn" type="button" data-type="watched">add to watched</button>
-        <button class="modal__btn" type="button" data-type="queue">add to queue</button>
+        <button class="modal__btn passive" type="button" data-type="watched">add to watched</button>
+        <button class="modal__btn passive" type="button" data-type="queue">add to queue</button>
         </div>
       </div>
    
@@ -103,6 +103,7 @@ function modalBtnsToChange() {
   const queueBtn = document.querySelector('button[data-type="queue"]');
   watchedBtn.addEventListener('click', onWatchedFilmsToSaveBtn);
   queueBtn.addEventListener('click', onQueueFilmsToSaveBtn);
+
   function onWatchedFilmsToSaveBtn(evt) {
     evt.preventDefault();
     watchedBtn.classList.toggle('active');
@@ -112,19 +113,28 @@ function modalBtnsToChange() {
   function onQueueFilmsToSaveBtn(evt) {
     evt.preventDefault();
     queueBtn.classList.toggle('active');
+    
     btnQueueTextContentToChange();
   }
 
   function btnWatchedTextContentToChange() {
-    watchedBtn.classList.contains('active')
-      ? (watchedBtn.textContent = 'remove from watched')
-      : (watchedBtn.textContent = 'add to watched');
+    if(watchedBtn.classList.contains('active')) {
+      watchedBtn.textContent = 'remove from watched'
+      watchedBtn.style.backgroundColor = '#ff6b08'
+      } else {
+      watchedBtn.textContent = 'add to watched' 
+      watchedBtn.style.backgroundColor = '#fff'
+    }
   }
 
   function btnQueueTextContentToChange() {
-    queueBtn.classList.contains('active')
-      ? (queueBtn.textContent = 'remove from watched')
-      : (queueBtn.textContent = 'add to queue');
+    if(queueBtn.classList.contains('active')) {
+      queueBtn.textContent = 'remove from watched'
+      queueBtn.style.backgroundColor = '#ff6b08'
+      } else {
+      queueBtn.textContent = 'add to queue'
+      queueBtn.style.backgroundColor = '#fff'
+    }
   }
 }
 
