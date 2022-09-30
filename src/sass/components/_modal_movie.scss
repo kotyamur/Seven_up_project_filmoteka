@@ -196,9 +196,17 @@
 
 .modal__about-text {
   margin-top: 0;
+  max-height: 200px;
   margin-bottom: 20px;
+  overflow: auto;
   line-height: 1.67;
   color: var(--main-text-color);
+  @media screen and (min-width: 768px) {
+    max-height: 200px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-height: 160px;
+  }
 }
 
 .modal__bottom-thumb {
@@ -230,7 +238,7 @@
   background-color: var(--secondary-text-color);
   color: var(--main-text-color);
   transition: color var(--transition-duration) var(--timing-function),
-    background-color var(--transition-duration) var(--timing-function);
+  background-color var(--transition-duration) var(--timing-function);
 
   @media screen and (min-width: 768px) {
     width: 125.03px;
