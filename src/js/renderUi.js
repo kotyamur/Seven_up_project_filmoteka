@@ -3,6 +3,7 @@ import Api from './api';
 import { genre } from './genre';
 import { loader } from './loader';
 import { renderPagination } from './pagination';
+import {errorSearch} from './imgErrorSearch'
 
 const refs = {
   search: document.querySelector('.form__input'),
@@ -24,7 +25,12 @@ function onSubmit(e) {
 }
 
 export function renderUi(result) {
-  refs.filmLsit.innerHTML = markupFilms(result);
+  if(result.length === 0){
+    refs.filmLsit.innerHTML = errorSearch();
+  }else{
+    refs.filmLsit.innerHTML = markupFilms(result);
+  }
+  
 }
 
 async function findRenderUi() {
