@@ -16,6 +16,13 @@ function scrollToTop() {
 
 
 function scrollHiden(e){
+
+    if(window.scrollY < 400){
+        scrollButton.style.display = 'none'
+    }else{
+        scrollButton.style.display = ''
+    }
+
     if(window.scrollY < 700){
        
         scrollButton.classList.add('hiden')
