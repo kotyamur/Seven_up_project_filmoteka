@@ -14,33 +14,39 @@ openModalBtn.addEventListener('click', onOpenModal);
 closeModalBtn.addEventListener('click', OnCloseModal);
 
 function onOpenModal() {
-  document.body.style.overflow = 'hidden';
   window.addEventListener('keydown', onCloseModalFromKey);
   backdrop.addEventListener('click', onCloseModalFromClick);
-  backdropFooter.classList.remove('is-hidden');
-  modalStudents.classList.remove('is-hidden');
+  removeClassAndStyleFooterModal();
 }
 
 function OnCloseModal() {
-  document.body.style.overflow = '';
   window.removeEventListener('keydown', onCloseModalFromKey);
   backdrop.removeEventListener('click', onCloseModalFromClick);
-  backdropFooter.classList.add('is-hidden');
-  modalStudents.classList.add('is-hidden');
+  addClassAndStyle();
 }
 
 function onCloseModalFromKey(event) {
   if (event.code === 'Escape') {
-    backdropFooter.classList.add('is-hidden');
-    modalStudents.classList.add('is-hidden');
+    addClassAndStyle();
   }
 }
 
 function onCloseModalFromClick(event) {
   if (event.target === event.currentTarget) {
-    backdropFooter.classList.add('is-hidden');
-    modalStudents.classList.add('is-hidden');
+    addClassAndStyle();
   }
+}
+
+function addClassAndStyle() {
+  document.body.style.overflow = '';
+  backdropFooter.classList.add('is-hidden');
+  modalStudents.classList.add('is-hidden');
+}
+
+function removeClassAndStyleFooterModal() {
+  document.body.style.overflow = 'hidden';
+  backdropFooter.classList.remove('is-hidden');
+  modalStudents.classList.remove('is-hidden');
 }
 
 const cards = document.querySelector('.card-wrapper');
@@ -107,11 +113,11 @@ const swiper = new Swiper('.slide-container', {
       slidesPerView: 1,
       slidesPerGroup: 1,
     },
-    520: {
+    768: {
       slidesPerView: 2,
       slidesPerGroup: 2,
     },
-    950: {
+    1280: {
       slidesPerView: 3,
       slidesPerGroup: 3,
     },
