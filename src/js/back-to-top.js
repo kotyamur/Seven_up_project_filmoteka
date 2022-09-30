@@ -1,32 +1,25 @@
-let intervalId = 0; 
-const scrollButton = document.querySelector('.back-to-top');
-function scrollStep() {
-    if (window.pageYOffset === 0) {
-        clearInterval(intervalId);
-    }
-    window.scroll(0, window.pageYOffset - 50);
+const scrollToTopBtn = document.querySelector('.scrollToTopBtn');
+const rootElement = document.documentElement;
+window.onscroll = function () {
+  scrollFunction();
+};
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 3000 ||
+    document.documentElement.scrollTop > 3000
+  ) {
+    scrollToTopBtn.classList.add('showBtn');
+  } else {
+    scrollToTopBtn.classList.remove('showBtn');
+  }
 }
+
 function scrollToTop() {
-    intervalId = setInterval(scrollStep, 16.66);
+  rootElement.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
-function scrollHiden(){
-    if(window.scrollY < 400){
-        scrollButton.style.display = 'none'
-    }else{
-        scrollButton.style.display = ''
-    }
-    if(window.scrollY < 700){  
-        scrollButton.classList.add('hiden')
-        console.log('asas')
-    }else{
-        scrollButton.classList.remove('hiden')
-    }
-}
-scrollButton.addEventListener('click', scrollToTop);
-window.addEventListener('scroll', scrollHiden)
+scrollToTopBtn.addEventListener('click', scrollToTop);
 
-
-
-
-
-
+export default scrollToTop;
