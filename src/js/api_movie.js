@@ -7,9 +7,9 @@ const backdropEl = document.querySelector('.modal-movie');
 const modalContainer = document.querySelector('.modal__container');
 const backdropFooterEl = document.querySelector('[data-backdrop]');
 const backdropMovie = document.querySelector('.backdrop');
+const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 const api = new Api();
-// const moviesArrayToSave = [];
 
 filmsContainer.addEventListener('click', onFilmCardClick);
 
@@ -58,39 +58,39 @@ function renderMovieModal(data) {
   const markUp = `
   <img
       class="modal__image"
-      src="https://image.tmdb.org/t/p/w500${poster_path}"
+      src="${poster_path ? IMG_URL + poster_path : 'https://i.postimg.cc/L8fCW6RZ/repetajpg.jpg'}"
       alt="${title}"
       width="240"
       height="357"
     />
     <div class="modal__info-box">
-      <p class="modal__title">${title}</p>
+      <p class="modal__title">${title ? title : 'No information'}</p>
       <div class="modal__features-box">
         <div class="modal__features-issues">
           <p class="modal__keys">Vote / Votes</p>
           <div class="modal__values-box">
-            <p class="modal__value-numbers modal__value-numbers--accent">${vote_average.toFixed(
+            <p class="modal__value-numbers modal__value-numbers--accent">${vote_average ? vote_average.toFixed(
               1
-            )}</p>
+            ) : '---'}</p>
             <span class="modal__slash">/</span>
-            <p class="modal__value-numbers modal__value-numbers--simple">${vote_count}</p>
+            <p class="modal__value-numbers modal__value-numbers--simple">${vote_count ? vote_count : '---'}</p>
           </div>
         </div>
         <div class="modal__features-issues">
           <p class="modal__keys">Popularity</p>
-          <p class="modal__value-numbers">${popularity.toFixed(1)}</p>
+          <p class="modal__value-numbers">${popularity ? popularity.toFixed(1) : '---'}</p>
         </div>
         <div class="modal__features-issues">
           <p class="modal__keys">Original Title</p>
-          <p class="modal__value-text modal__value--main-text">${original_title}</p>
+          <p class="modal__value-text modal__value--main-text">${original_title ? original_title : 'No information'}</p>
         </div>
         <div class="modal__features-issues">
           <p class="modal__keys">Genre</p>
-          <p class="modal__value-text">${genresRender}</p>
+          <p class="modal__value-text">${genresRender ? genresRender : 'No information'}</p>
         </div>
       </div>
       <p class="modal__about-title">About</p>
-      <p class="modal__about-text">${overview}</p>
+      <p class="modal__about-text">${overview ? overview : 'No information'}</p>
       <div class="modal__bottom-thumb">
         <div class="modal__btn-box">
         <button class="modal__btn" type="button" data-type="watched" data-id=${id}>add to watched</button>
@@ -161,7 +161,6 @@ function initWatchedLS (currentMovieId) {
           localStorage.setItem("watched", JSON.stringify(moviesArrayToSave))
            } else {
           let newArray = []
-          console.log('new')
           savedInLSMovies.splice(index, 1)
           moviesArrayToSave = savedInLSMovies
           localStorage.setItem("watched", JSON.stringify(moviesArrayToSave))
