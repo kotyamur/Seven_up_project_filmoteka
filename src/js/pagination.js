@@ -8,6 +8,13 @@ const container = document.getElementById('pagination');
 
 export const renderPagination = (api, renderer, searchFnName) => {
   const { totalResult } = api;
+
+  if (totalResult === 0) {
+    container.style.display = 'none';
+  } else {
+    container.style.display = 'flex';
+  }
+
   const options = {
     totalItems: totalResult,
     itemsPerPage: 20,

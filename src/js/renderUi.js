@@ -19,7 +19,6 @@ refs.search.addEventListener('submit', onSubmit);
 function onSubmit(e) {
   e.preventDefault();
   loader();
-  refs.filmLsit.innerHTML = '';
   api.searchQuery = e.currentTarget.elements.searchQuery.value;
   findRenderUi();
 }
