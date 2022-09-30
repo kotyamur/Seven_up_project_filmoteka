@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0">
-<symbol id="arrow-left" width="16" height="16" viewBox="0 0 16 16" fill="none">
-<path d="M12.6666 8H3.33325" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.99992 12.6668L3.33325 8.00016L7.99992 3.3335" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<symbol id="arrow-first" width="16" height="16" viewBox="0 0 16 16" fill="none">
+<path d="M12.6666 8H3.33325" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7.99992 12.6668L3.33325 8.00016L7.99992 3.3335" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
 
-<symbol id="arrow-right" width="16" height="16" viewBox="0 0 16 16" fill="none">
-<path d="M3.33329 8H12.6666" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.99996 12.6667L12.6666 8.00004L7.99996 3.33337" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<symbol id="arrow-last" width="16" height="16" viewBox="0 0 16 16" fill="none">
+<path d="M3.33329 8H12.6666" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7.99996 12.6667L12.6666 8.00004L7.99996 3.33337" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
 
 <symbol id="film" width="24" height="24" viewBox="0 0 24 24" fill="none" >
@@ -30,7 +30,7 @@
 <path d="M10.5 10.5002L8.32495 8.3252" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
 
-<symbol id="favorite" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<symbol id="favorite" viewBox="0 0 14 14" fill="none">
 <path d="M7 13.188L6.02 12.2177C2.38 9.02961 0 6.88109 0 4.24743C0 2.09891 1.68 0.435547 3.85 0.435547C5.04 0.435547 6.23 0.990002 7 1.89099C7.77 0.990002 8.96 0.435547 10.15 0.435547C12.32 0.435547 14 2.09891 14 4.24743C14 6.88109 11.62 9.02961 7.98 12.2177L7 13.188Z" fill="#FF6B08"/>
 </symbol>
 

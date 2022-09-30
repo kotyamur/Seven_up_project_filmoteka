@@ -8,12 +8,14 @@ export default class Api {
     this.totalResult = '';
     this.totlaPages = '';
     this.genre = [];
+    this.page = 1;
   }
 
   async search() {
     const searchParams = new URLSearchParams({
       api_key: APIKEY,
       query: this.query,
+      page: this.page,
     });
 
     const api = axios.create({
@@ -21,6 +23,24 @@ export default class Api {
     });
 
     const result = await api.get(`search/movie?${searchParams}`);
+
+    this.totalResult = result.data.total_results;
+    this.totlaPages = result.data.total_pages;
+
+    return result.data.results;
+  }
+
+  async searchPopular() {
+    const searchParams = new URLSearchParams({
+      api_key: APIKEY,
+      page: this.page,
+    });
+
+    const api = axios.create({
+      baseURL: URL,
+    });
+
+    const result = await api.get(`trending/movie/week?${searchParams}`);
 
     this.totalResult = result.data.total_results;
     this.totlaPages = result.data.total_pages;
@@ -50,5 +70,11 @@ export default class Api {
 
   set searchQuery(newQuery) {
     this.query = newQuery;
+  }
+
+  getSingleMovieByID(movie_id) {
+    return axios.get(
+      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a97f5a48286213b4292b81d1cb5cf0d2`,
+    );
   }
 }
