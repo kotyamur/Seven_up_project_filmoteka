@@ -9,6 +9,7 @@ const backdropFooterEl = document.querySelector('[data-backdrop]');
 const backdropMovie = document.querySelector('.backdrop');
 
 const api = new Api();
+// const moviesArrayToSave = [];
 
 filmsContainer.addEventListener('click', onFilmCardClick);
 
@@ -23,7 +24,9 @@ function onFilmCardClick(evt) {
   backdropEl.classList.remove('is-hidden');
   backdropFooterEl.classList.remove('is-hidden');
   fetchMovieData(evt.target.closest('li').dataset.id)
-    .then(renderMovieModal)
+    .then(data => {
+      api.movieToSave = data
+      renderMovieModal(data)})
     .catch(error => {
       console.log(error);
     });
@@ -35,16 +38,18 @@ function fetchMovieData(movie_id) {
   });
 }
 
-function renderMovieModal({
-  poster_path,
-  original_title,
-  title,
-  vote_average,
-  vote_count,
-  genres,
-  overview,
-  popularity,
-}) {
+function renderMovieModal(data) {
+  const {
+    poster_path,
+    original_title,
+    title,
+    id,
+    vote_average,
+    vote_count,
+    genres,
+    overview,
+    popularity,
+  } = data
   const genresRender = genres
     .map(genre => {
       return genre.name;
@@ -88,33 +93,34 @@ function renderMovieModal({
       <p class="modal__about-text">${overview}</p>
       <div class="modal__bottom-thumb">
         <div class="modal__btn-box">
-        <button class="modal__btn passive" type="button" data-type="watched">add to watched</button>
-        <button class="modal__btn passive" type="button" data-type="queue">add to queue</button>
+        <button class="modal__btn" type="button" data-type="watched" data-id=${id}>add to watched</button>
+        <button class="modal__btn" type="button" data-type="queue" data-id=${id}>add to queue</button>
         </div>
       </div>
    
     </div>`;
   modalContainer.innerHTML = markUp;
-  modalBtnsToChange();
+  modalBtnsToProcess();
 }
 
-function modalBtnsToChange() {
+function modalBtnsToProcess() {
   const watchedBtn = document.querySelector('button[data-type="watched"]');
   const queueBtn = document.querySelector('button[data-type="queue"]');
-  watchedBtn.addEventListener('click', onWatchedFilmsToSaveBtn);
-  queueBtn.addEventListener('click', onQueueFilmsToSaveBtn);
+  watchedBtn.addEventListener('click', onWatchedFilmsToSaveClick);
+  queueBtn.addEventListener('click', onQueueFilmsToSaveClick);
 
-  function onWatchedFilmsToSaveBtn(evt) {
+  function onWatchedFilmsToSaveClick(evt) {
     evt.preventDefault();
     watchedBtn.classList.toggle('active');
     btnWatchedTextContentToChange();
+    initWatchedLS(watchedBtn.dataset.id);
   }
 
-  function onQueueFilmsToSaveBtn(evt) {
+  function onQueueFilmsToSaveClick(evt) {
     evt.preventDefault();
     queueBtn.classList.toggle('active');
-    
     btnQueueTextContentToChange();
+    initQueueLS(queueBtn.dataset.id);
   }
 
   function btnWatchedTextContentToChange() {
@@ -129,13 +135,72 @@ function modalBtnsToChange() {
 
   function btnQueueTextContentToChange() {
     if(queueBtn.classList.contains('active')) {
-      queueBtn.textContent = 'remove from watched'
+      queueBtn.textContent = 'remove from queue'
       queueBtn.style.backgroundColor = '#ff6b08'
       } else {
       queueBtn.textContent = 'add to queue'
       queueBtn.style.backgroundColor = '#fff'
     }
   }
+}
+
+function initWatchedLS (currentMovieId) {
+  const savedMovie = api.movieToSave; 
+  let moviesArrayToSave = [];
+  let savedInLSMovies = localStorage.getItem('watched')
+  if(!savedInLSMovies) {
+    moviesArrayToSave.push(savedMovie)
+    localStorage.setItem("watched", JSON.stringify(moviesArrayToSave))
+    return
+  } else {
+    savedInLSMovies = JSON.parse(savedInLSMovies)
+    let map = savedInLSMovies.map(movie => {return movie.id})
+    let index = map.indexOf(Number(currentMovieId))
+       if (index < 0) {
+          moviesArrayToSave.push(...savedInLSMovies, savedMovie)
+          localStorage.setItem("watched", JSON.stringify(moviesArrayToSave))
+           } else {
+          let newArray = []
+          console.log('new')
+          savedInLSMovies.splice(index, 1)
+          moviesArrayToSave = savedInLSMovies
+          localStorage.setItem("watched", JSON.stringify(moviesArrayToSave))
+        }
+
+  if (savedInLSMovies.length < 1) {
+    localStorage.removeItem('watched')
+   } 
+  }
+ 
+}
+
+function initQueueLS (currentMovieId) {
+  const savedMovie = api.movieToSave; 
+  let moviesArrayToSave = [];
+  let savedInLSMovies = localStorage.getItem('queue')
+  if(!savedInLSMovies) {
+    moviesArrayToSave.push(savedMovie)
+    localStorage.setItem("queue", JSON.stringify(moviesArrayToSave))
+    return
+  } else {
+    savedInLSMovies = JSON.parse(savedInLSMovies)
+    let map = savedInLSMovies.map(movie => {return movie.id})
+    let index = map.indexOf(Number(currentMovieId))
+       if (index < 0) {
+          moviesArrayToSave.push(...savedInLSMovies, savedMovie)
+          localStorage.setItem("queue", JSON.stringify(moviesArrayToSave))
+           } else {
+          let newArray = []
+          savedInLSMovies.splice(index, 1)
+          moviesArrayToSave = savedInLSMovies
+          localStorage.setItem("queue", JSON.stringify(moviesArrayToSave))
+        }
+
+  if (savedInLSMovies.length < 1) {
+    localStorage.removeItem('queue')
+   } 
+  }
+ 
 }
 
 const closeModalMovieBtn = document.querySelector('.modal-movie__close-button');
@@ -149,6 +214,7 @@ function modalMovieClose() {
   backdropEl.classList.add('is-hidden');
   document.body.style.overflow = '';
   modalContainer.innerHTML = '';
+  api.clearSavedMovie();
 }
 
 function onCloseModalMovieFromKey(event) {
@@ -156,6 +222,7 @@ function onCloseModalMovieFromKey(event) {
     backdropFooterEl.classList.add('is-hidden');
     backdropEl.classList.add('is-hidden');
     document.body.style.overflow = '';
+    api.clearSavedMovie();
   }
 }
 
@@ -164,5 +231,7 @@ function onCloseModalMovieFromClick(event) {
     backdropFooterEl.classList.add('is-hidden');
     backdropEl.classList.add('is-hidden');
     document.body.style.overflow = '';
+    api.clearSavedMovie();
   }
 }
+
