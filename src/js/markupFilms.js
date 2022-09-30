@@ -16,7 +16,7 @@ export default function markupFilms(results) {
         let year = String(release_date).slice(0, 4);
 
         if (poster_path === null) {
-          url = 'https://i.postimg.cc/NF6QdzcX/no.jpg';
+          url = 'https://i.postimg.cc/L8fCW6RZ/repetajpg.jpg';
           poster_path = '';
         }
         if (release_date === '') {
@@ -42,7 +42,7 @@ export default function markupFilms(results) {
         return `<li class="films__item" data-id=${id}>
           <a href="" class="films__item-link">
             <div class="poster__thumb">
-              <img src="${url}${poster_path}" alt="${original_title}" class="poster__foto" />
+              <img src="${url}${poster_path}" loading="lazy" alt="${original_title}" class="poster__foto" />
             </div>
               <div class="poster__about">
                 <p class="poster__title">${title}</p>

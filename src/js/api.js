@@ -9,6 +9,7 @@ export default class Api {
     this.totlaPages = '';
     this.genre = [];
     this.page = 1;
+    this.singleMovie = {};
   }
 
   async search() {
@@ -72,9 +73,25 @@ export default class Api {
     this.query = newQuery;
   }
 
+  setPage(newPage) {
+    this.page = newPage;
+  }
+
   getSingleMovieByID(movie_id) {
     return axios.get(
-      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a97f5a48286213b4292b81d1cb5cf0d2`,
+      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a97f5a48286213b4292b81d1cb5cf0d2`
     );
+  }
+
+  get movieToSave () {
+    return this.singleMovie;
+  }
+
+  set movieToSave (newMovie) {
+    this.singleMovie = newMovie;
+  }
+
+  clearSavedMovie() {
+    this.singleMovie = [];
   }
 }
