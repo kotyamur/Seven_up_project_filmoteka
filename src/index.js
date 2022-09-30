@@ -9,4 +9,3 @@ import './js/api_movie';
 import './js/loader';
 import './js/pagination';
 import './js/sort-top-film'
-
