@@ -13,6 +13,7 @@
 }
 
 .footer-text {
+  display: inline-flex;
   padding: 0;
   margin: 0;
 
@@ -32,6 +33,8 @@
 }
 
 .footer-text-modal {
+  margin-left: 5px;
+
   text-decoration: underline;
   cursor: pointer;
 
@@ -41,4 +44,8 @@
   &:focus {
     color: var(--accent-color);
   }
+}
+
+.footer-text__icon {
+  margin: 0 5px;
 }

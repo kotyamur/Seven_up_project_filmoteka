@@ -100,6 +100,27 @@
 
     fill: var(--primary-white-color);
   }
+
+  &.instagram-icon,
+  &.twitter-icon,
+  &.facebook-icon,
+  &.linkedin-icon {
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.instagram-icon {
+    background-image: url(/src/images/instagram.svg);
+  }
+  &.twitter-icon {
+    background-image: url(/src/images/twitter.svg);
+  }
+  &.facebook-icon {
+    background-image: url(/src/images/facebook.svg);
+  }
+  &.linkedin-icon {
+    background-image: url(/src/images/linkedin.svg);
+  }
 }
 
 .swiper-navBtn {
@@ -148,7 +169,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  width: 100%;
+  max-width: 80%;
   padding: 40px 12px 20px 12px;
 
   opacity: 1;
@@ -158,15 +179,20 @@
   transition: transform var(--transition-duration) var(--timing-function),
     opacity var(--transition-duration) var(--timing-function);
 
-  @media screen and (min-width: 519px) {
-    width: 520px;
+  @media screen and (min-width: 440px) {
+    width: 440px;
   }
 
-  @media screen and (min-width: 949px) {
-    width: 950px;
+  @media screen and (min-width: 768px) {
+    max-width: 100%;
+    width: 706px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
   }
 }
-
+.modal-movie__close-button,
 .modal__close-button {
   position: absolute;
   top: +8px;
