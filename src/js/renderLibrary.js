@@ -1,5 +1,7 @@
 import markupFilms from './markupFilms';
+
 import { renderLibraryPagination } from './pagination';
+
 const refs = {
   btnWatched: document.querySelector('.watched'),
   btnQueue: document.querySelector('.queue'),
@@ -8,8 +10,10 @@ const refs = {
   pagination: document.getElementById('pagination'),
 };
 
+
 refs.btnWatched.addEventListener('click', getWatched);
 refs.btnQueue.addEventListener('click', getQueue);
+
 
 getWatched();
 function getWatched() {

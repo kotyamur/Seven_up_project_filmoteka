@@ -92,7 +92,7 @@ export default class Api {
   }
 
   clearSavedMovie() {
-    this.singleMovie = [];
+    this.singleMovie = {};
   }
 
   resetPage() {
