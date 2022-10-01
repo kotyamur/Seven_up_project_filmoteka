@@ -1,4 +1,5 @@
 import markupFilms from './markupFilms';
+import { renderLibraryPagination } from './pagination';
 const refs = {
     btnWatched : document.querySelector('.watched'),
     btnQueue : document.querySelector('.queue'),
@@ -16,7 +17,8 @@ function getWatched(){
     const parsItem = JSON.parse(localStorage.getItem('watched'))
     if(parsItem !== null && parsItem.length !== 0){
         refs.plug.style.display = 'none'
-        refs.films.insertAdjacentHTML('beforeend',markupFilms(parsItem))
+        refs.films.insertAdjacentHTML('beforeend', markupFilms(parsItem))
+        renderLibraryPagination('watched');
     }else{
         refs.plug.style.display = 'flex'
         refs.films.innerHTML = '';
@@ -30,7 +32,8 @@ function getQueue(){
     const parsItem = JSON.parse(localStorage.getItem('queue'))
     if(parsItem !== null && parsItem.length !== 0){
         refs.plug.style.display = 'none'
-        refs.films.insertAdjacentHTML('beforeend',markupFilms(parsItem))
+        refs.films.insertAdjacentHTML('beforeend', markupFilms(parsItem))
+        renderLibraryPagination('queue');
     }else{
         refs.plug.style.display = 'flex'
         refs.films.innerHTML = '';
