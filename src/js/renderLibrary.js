@@ -17,6 +17,8 @@ getWatched();
 function getWatched() {
   refs.films.innerHTML = '';
   const parsItem = JSON.parse(localStorage.getItem('watched'));
+  refs.films.classList.remove('queue');
+  refs.films.classList.add('watched');
   if (parsItem !== null && parsItem.length !== 0) {
     refs.plug.style.display = 'none';
     refs.films.innerHTML = markupFilmsLib(parsItem.slice(0, 20));
@@ -35,6 +37,8 @@ function getWatched() {
 function getQueue() {
   refs.films.innerHTML = '';
   const parsItem = JSON.parse(localStorage.getItem('queue'));
+  refs.films.classList.remove('watched');
+  refs.films.classList.add('queue');
   if (parsItem !== null && parsItem.length !== 0) {
     refs.plug.style.display = 'none';
     refs.films.innerHTML = markupFilmsLib(parsItem.slice(0, 20));
