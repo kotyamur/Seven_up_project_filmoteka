@@ -1,44 +1,53 @@
 import markupFilms from './markupFilms';
 
-const refs = {
-    btnWatched : document.querySelector('.watched'),
-    btnQueue : document.querySelector('.queue'),
-    films : document.querySelector('.films'),
-    plug : document.querySelector('.plug')
-}
+import { renderLibraryPagination } from './pagination';
 
-refs.btnWatched.addEventListener('click', getWatched)
-refs.btnQueue.addEventListener('click', getQueue)
+const refs = {
+  btnWatched: document.querySelector('.watched'),
+  btnQueue: document.querySelector('.queue'),
+  films: document.querySelector('.films'),
+  plug: document.querySelector('.plug'),
+  pagination: document.getElementById('pagination'),
+};
+
+
+refs.btnWatched.addEventListener('click', getWatched);
+refs.btnQueue.addEventListener('click', getQueue);
+
 
 getWatched();
-function getWatched(){
+function getWatched() {
+  refs.films.innerHTML = '';
+  const parsItem = JSON.parse(localStorage.getItem('watched'));
+  if (parsItem !== null && parsItem.length !== 0) {
+    refs.plug.style.display = 'none';
+    refs.films.innerHTML = markupFilms(parsItem.slice(0, 20));
+    renderLibraryPagination('watched', films => {
+      refs.films.innerHTML = markupFilms(films);
+    });
+  } else {
+    refs.plug.style.display = 'flex';
     refs.films.innerHTML = '';
-    const parsItem = JSON.parse(localStorage.getItem('watched'))
-    if(parsItem !== null && parsItem.length !== 0){
-        refs.plug.style.display = 'none'
-        refs.films.insertAdjacentHTML('beforeend',markupFilms(parsItem))
-    }else{
-        refs.plug.style.display = 'flex'
-        refs.films.innerHTML = '';
-    }
-    refs.btnQueue.classList.remove('is-active')
-    refs.btnWatched.classList.add('is-active')
+    refs.pagination.style.display = 'none';
+  }
+  refs.btnQueue.classList.remove('is-active');
+  refs.btnWatched.classList.add('is-active');
 }
 
-function getQueue(){
+function getQueue() {
+  refs.films.innerHTML = '';
+  const parsItem = JSON.parse(localStorage.getItem('queue'));
+  if (parsItem !== null && parsItem.length !== 0) {
+    refs.plug.style.display = 'none';
+    refs.films.innerHTML = markupFilms(parsItem.slice(0, 20));
+    renderLibraryPagination('queue', films => {
+      refs.films.innerHTML = markupFilms(films);
+    });
+  } else {
+    refs.plug.style.display = 'flex';
     refs.films.innerHTML = '';
-    const parsItem = JSON.parse(localStorage.getItem('queue'))
-    if(parsItem !== null && parsItem.length !== 0){
-        refs.plug.style.display = 'none'
-        refs.films.insertAdjacentHTML('beforeend',markupFilms(parsItem))
-    }else{
-        refs.plug.style.display = 'flex'
-        refs.films.innerHTML = '';
-    }
-    refs.btnQueue.classList.add('is-active')
-    refs.btnWatched.classList.remove('is-active')
-}
-
-function renderModalMovie (currentMovieId) {
-
+    refs.pagination.style.display = 'none';
+  }
+  refs.btnQueue.classList.add('is-active');
+  refs.btnWatched.classList.remove('is-active');
 }

@@ -1,6 +1,5 @@
 import markupFilms from './markupFilms';
 import Api from './api';
-import { genre } from './genre';
 import { loader, stopLoader } from './loader';
 import { renderPagination } from './pagination';
 
