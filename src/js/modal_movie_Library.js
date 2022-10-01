@@ -44,13 +44,11 @@ function renderMovieModal(data) {
       overview,
       popularity,
     } = data
-    console.log(title.length)
     const genresRender = genres
       .map(genre => {
         return genre.name;
       })
       .join(', ');
-      console.log('library')
     const markUp = `
     <img
         class="modal__image"
