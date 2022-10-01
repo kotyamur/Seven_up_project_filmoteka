@@ -1,14 +1,11 @@
 import Pagination from 'tui-pagination';
 import icons from '../images/icons.svg';
-import Api from './api';
 
 const arrowIcon = `${icons}#arrow`;
 
 const container = document.getElementById('pagination');
 
 const options = {
-  // totalItems: totalResult,
-  // totalItems: 0,
   itemsPerPage: 20,
   visiblePages: 5,
   page: 1,
@@ -55,11 +52,9 @@ export const renderPagination = (api, renderer, searchFnName) => {
   });
 };
 
-export const renderLibraryPagination = (storageDataName) => {
-
+export const renderLibraryPagination = (storageDataName, renderer) => {
   const savedUserFilms = JSON.parse(localStorage.getItem(storageDataName));
-  console.log(savedUserFilms);
-   
+
   const totalResult = savedUserFilms.length;
 
   if (totalResult === 0) {
@@ -72,9 +67,7 @@ export const renderLibraryPagination = (storageDataName) => {
 
   const pagination = new Pagination(container, options);
 
-  // pagination.on('afterMove', async ({ page }) => {
-  //   api.page = page;
-  //   const resultApi = await api[searchFnName]();
-  //   renderer(resultApi);
-  // });
+  pagination.on('afterMove', async ({ page }) => {
+    renderer(savedUserFilms.slice(20 * (page - 1), 20 * page));
+  });
 };
