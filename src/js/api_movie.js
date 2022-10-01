@@ -101,12 +101,13 @@ export default function renderMovieModal(data) {
       </div>
    
     </div>`;
-  const hugeTitleLength = title.length > 54;
-  if (hugeTitleLength) {
-  const titleName = document.querySelector('.modal__title')
-  console.log(titleName)
-  titleName.style.fontsize='10px'
-  }
+  // const hugeTitleLength = title.length > 54;
+  
+  // if (hugeTitleLength) {
+  //   const titleName = document.querySelector('.modal__title')
+  // console.log(titleName)
+  // titleName.style.fontsize='10px'
+  // }
   modalContainer.innerHTML = markUp;
   initBtns(id);
   modalBtnsToProcess();
