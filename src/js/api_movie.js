@@ -50,6 +50,7 @@ function renderMovieModal(data) {
     overview,
     popularity,
   } = data
+  console.log(title.length)
   const genresRender = genres
     .map(genre => {
       return genre.name;
@@ -59,7 +60,7 @@ function renderMovieModal(data) {
   <img
       class="modal__image"
       src="${poster_path ? IMG_URL + poster_path : 'https://i.postimg.cc/L8fCW6RZ/repetajpg.jpg'}"
-      alt="${title}"
+      alt="${title ? title : 'Image'}"
       width="240"
       height="357"
     />
@@ -101,6 +102,7 @@ function renderMovieModal(data) {
     </div>`;
   modalContainer.innerHTML = markUp;
   modalBtnsToProcess();
+  
 }
 
 function modalBtnsToProcess() {
