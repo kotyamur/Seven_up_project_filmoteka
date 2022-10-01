@@ -5,6 +5,7 @@ const refs = {
   btnQueue: document.querySelector('.queue'),
   films: document.querySelector('.films'),
   plug: document.querySelector('.plug'),
+  pagination: document.getElementById('pagination'),
 };
 
 refs.btnWatched.addEventListener('click', getWatched);
@@ -23,6 +24,7 @@ function getWatched() {
   } else {
     refs.plug.style.display = 'flex';
     refs.films.innerHTML = '';
+    refs.pagination.style.display = 'none';
   }
   refs.btnQueue.classList.remove('is-active');
   refs.btnWatched.classList.add('is-active');
@@ -40,6 +42,7 @@ function getQueue() {
   } else {
     refs.plug.style.display = 'flex';
     refs.films.innerHTML = '';
+    refs.pagination.style.display = 'none';
   }
   refs.btnQueue.classList.add('is-active');
   refs.btnWatched.classList.remove('is-active');
