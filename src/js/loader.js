@@ -1,15 +1,7 @@
-// import {Spinner} from 'spin.js';
-
-
-// function loader(elements){
-//   const target = document.getElementById('foo');
-//   const spinner = new Spinner().spin(target);
-//   target.appendChild(spinner.el);
-//   return spinner
-// }
-// loader()
-
 import { Spinner } from 'spin.js';
+
+let spinner = null;
+
 const opts = {
   lines: 13, // The number of lines to draw
   length: 38, // The length of each line
@@ -32,11 +24,9 @@ const opts = {
 };
 export function loader() {
   const target = document.getElementById('foo');
-  const spinner = new Spinner(opts).spin(target);
-  const stopLoader = () => {
-    setTimeout(() => {
-      spinner.stop();
-    }, 550);
-  };
-  stopLoader();
+  spinner = new Spinner(opts).spin(target);
+}
+
+export function stopLoader() {
+  spinner.stop();
 }

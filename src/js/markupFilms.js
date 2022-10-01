@@ -37,7 +37,6 @@ export default function markupFilms(results) {
           }
         }
         if (arrayGenre.length > 2) {
-          console.log('more 2');
           arrayGenre = arrayGenre.slice(0, 2);
           arrayGenre.push('Other');
         }

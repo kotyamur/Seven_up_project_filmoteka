@@ -1,7 +1,7 @@
 import markupFilms from './markupFilms';
 import Api from './api';
 import { genre } from './genre';
-import { loader } from './loader';
+import { loader, stopLoader } from './loader';
 import { renderPagination } from './pagination';
 
 const refs = {
@@ -18,9 +18,7 @@ refs.search.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
-
   api.resetPage();
-  loader();
   api.searchQuery = e.currentTarget.elements.searchQuery.value;
   findRenderUi();
 }
@@ -30,7 +28,6 @@ export function renderUi(result) {
     return;
   }
   refs.filmLsit.innerHTML = markupFilms(result);
-  console.log(result);
 }
 
 async function findRenderUi() {
@@ -38,14 +35,15 @@ async function findRenderUi() {
     if (api.query === '') {
       return;
     }
+    loader();
     const resultApi = await api.search();
+
     api.totalResult === 0
       ? refs.searcError.classList.remove('is-hidden')
       : refs.searcError.classList.add('is-hidden');
-
-    // console.log(api.totlaPages);
     renderUi(resultApi);
     renderPagination(api, renderUi, 'search');
+    stopLoader();
   } catch (error) {
     console.log(error);
   }
