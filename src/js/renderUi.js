@@ -18,17 +18,26 @@ refs.search.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
+
+  api.resetPage();
   loader();
   api.searchQuery = e.currentTarget.elements.searchQuery.value;
   findRenderUi();
 }
 
 export function renderUi(result) {
+  if (result.length === 0) {
+    return;
+  }
   refs.filmLsit.innerHTML = markupFilms(result);
+  console.log(result);
 }
 
 async function findRenderUi() {
   try {
+    if (api.query === '') {
+      return;
+    }
     const resultApi = await api.search();
     api.totalResult === 0
       ? refs.searcError.classList.remove('is-hidden')

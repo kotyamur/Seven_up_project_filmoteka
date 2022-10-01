@@ -83,15 +83,19 @@ export default class Api {
     );
   }
 
-  get movieToSave () {
+  get movieToSave() {
     return this.singleMovie;
   }
 
-  set movieToSave (newMovie) {
+  set movieToSave(newMovie) {
     this.singleMovie = newMovie;
   }
 
   clearSavedMovie() {
     this.singleMovie = [];
+  }
+
+  resetPage() {
+    this.page = 1;
   }
 }

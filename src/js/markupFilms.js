@@ -19,12 +19,14 @@ export default function markupFilms(results) {
           url = 'https://i.postimg.cc/L8fCW6RZ/repetajpg.jpg';
           poster_path = '';
         }
-        if (release_date === '') {
-          year = 'no information';
+        if (release_date === '' || !release_date) {
+          year = 'No information';
         }
+
         if (genre_ids?.length === 0) {
           arrayGenre.push('No information');
         }
+
         for (const gen of genre) {
           if (genre_ids) {
             for (const id of genre_ids) {
