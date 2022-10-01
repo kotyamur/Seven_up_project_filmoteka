@@ -22,12 +22,12 @@ function getWatched(){
     if(parsItem !== null && parsItem.length !== 0){
         refs.plug.style.display = 'none'
         refs.films.insertAdjacentHTML('beforeend',markupFilms(parsItem))
-        refs.btnQueue.classList.remove('is-active')
-        refs.btnWatched.classList.add('is-active')
     }else{
         refs.plug.style.display = 'flex'
         refs.films.innerHTML = '';
     }
+    refs.btnQueue.classList.remove('is-active')
+    refs.btnWatched.classList.add('is-active')
 }
 
 function getQueue(){
@@ -36,12 +36,12 @@ function getQueue(){
     if(parsItem !== null && parsItem.length !== 0){
         refs.plug.style.display = 'none'
         refs.films.insertAdjacentHTML('beforeend',markupFilms(parsItem))
-        refs.btnWatched.classList.remove('is-active')
-        refs.btnQueue.classList.add('is-active')
     }else{
         refs.plug.style.display = 'flex'
         refs.films.innerHTML = '';
     }
+    refs.btnQueue.classList.add('is-active')
+    refs.btnWatched.classList.remove('is-active')
 }
 
 
