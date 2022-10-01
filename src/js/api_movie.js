@@ -7,6 +7,7 @@ const backdropEl = document.querySelector('.modal-movie');
 const modalContainer = document.querySelector('.modal__container');
 const backdropFooterEl = document.querySelector('[data-backdrop]');
 const backdropMovie = document.querySelector('.backdrop');
+
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 const api = new Api();
@@ -100,7 +101,25 @@ function renderMovieModal(data) {
    
     </div>`;
   modalContainer.innerHTML = markUp;
+  initBtns(id);
   modalBtnsToProcess();
+}
+
+function initBtns (movieId) {
+  const watchedBtn = document.querySelector('button[data-type="watched"]');
+  const queueBtn = document.querySelector('button[data-type="queue"]');
+  let savedInLSMovies = localStorage.getItem('watched')
+  if(savedInLSMovies) {
+    savedInLSMovies = JSON.parse(savedInLSMovies)
+    let map = savedInLSMovies.map(movie => {return movie.id})
+    let index = map.indexOf(Number(movieId))
+       if (index >= 0) {
+          watchedBtn.classList.add('active')
+          watchedBtn.style.backgroundColor = '#ff6b08'
+          watchedBtn.textContent = 'remove from watched'
+        }
+      }
+  
 }
 
 function modalBtnsToProcess() {
@@ -112,36 +131,34 @@ function modalBtnsToProcess() {
   function onWatchedFilmsToSaveClick(evt) {
     evt.preventDefault();
     watchedBtn.classList.toggle('active');
-    btnWatchedTextContentToChange();
     initWatchedLS(watchedBtn.dataset.id);
   }
 
   function onQueueFilmsToSaveClick(evt) {
     evt.preventDefault();
     queueBtn.classList.toggle('active');
-    btnQueueTextContentToChange();
     initQueueLS(queueBtn.dataset.id);
   }
 
-  function btnWatchedTextContentToChange() {
-    if(watchedBtn.classList.contains('active')) {
-      watchedBtn.textContent = 'remove from watched'
-      watchedBtn.style.backgroundColor = '#ff6b08'
-      } else {
-      watchedBtn.textContent = 'add to watched' 
-      watchedBtn.style.backgroundColor = '#fff'
-    }
-  }
+  // function btnWatchedTextContentToChange() {
+  //   if(watchedBtn.classList.contains('active')) {
+  //     watchedBtn.textContent = 'remove from watched'
+  //     watchedBtn.style.backgroundColor = '#ff6b08'
+  //     } else {
+  //     watchedBtn.textContent = 'add to watched' 
+  //     watchedBtn.style.backgroundColor = '#fff'
+  //   }
+  // }
 
-  function btnQueueTextContentToChange() {
-    if(queueBtn.classList.contains('active')) {
-      queueBtn.textContent = 'remove from queue'
-      queueBtn.style.backgroundColor = '#ff6b08'
-      } else {
-      queueBtn.textContent = 'add to queue'
-      queueBtn.style.backgroundColor = '#fff'
-    }
-  }
+  // function btnQueueTextContentToChange() {
+  //   if(queueBtn.classList.contains('active')) {
+  //     queueBtn.textContent = 'remove from queue'
+  //     queueBtn.style.backgroundColor = '#ff6b08'
+  //     } else {
+  //     queueBtn.textContent = 'add to queue'
+  //     queueBtn.style.backgroundColor = '#fff'
+  //   }
+  // }
 }
 
 function initWatchedLS (currentMovieId) {
@@ -217,6 +234,7 @@ function modalMovieClose() {
 }
 
 function onCloseModalMovieFromKey(event) {
+  // localStorage.removeItem('watched')
   if (event.code === 'Escape') {
     backdropFooterEl.classList.add('is-hidden');
     backdropEl.classList.add('is-hidden');
