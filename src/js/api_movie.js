@@ -7,6 +7,7 @@ const backdropEl = document.querySelector('.modal-movie');
 const modalContainer = document.querySelector('.modal__container');
 const backdropFooterEl = document.querySelector('[data-backdrop]');
 const backdropMovie = document.querySelector('.backdrop');
+
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 const api = new Api();
@@ -50,6 +51,7 @@ function renderMovieModal(data) {
     overview,
     popularity,
   } = data
+  console.log(title.length)
   const genresRender = genres
     .map(genre => {
       return genre.name;
@@ -59,7 +61,7 @@ function renderMovieModal(data) {
   <img
       class="modal__image"
       src="${poster_path ? IMG_URL + poster_path : 'https://i.postimg.cc/L8fCW6RZ/repetajpg.jpg'}"
-      alt="${title}"
+      alt="${title ? title : 'Image'}"
       width="240"
       height="357"
     />
@@ -100,7 +102,37 @@ function renderMovieModal(data) {
    
     </div>`;
   modalContainer.innerHTML = markUp;
+  initBtns(id);
   modalBtnsToProcess();
+  
+}
+
+function initBtns (movieId) {
+  const watchedBtn = document.querySelector('button[data-type="watched"]');
+  const queueBtn = document.querySelector('button[data-type="queue"]');
+  let savedInLSMoviesWatched = localStorage.getItem('watched')
+  if(savedInLSMoviesWatched) {
+    savedInLSMoviesWatched = JSON.parse(savedInLSMoviesWatched)
+    let map = savedInLSMoviesWatched.map(movie => {return movie.id})
+    let index = map.indexOf(Number(movieId))
+       if (index >= 0) {
+          watchedBtn.classList.add('active')
+          watchedBtn.style.backgroundColor = '#ff6b08'
+          watchedBtn.textContent = 'remove from watched'
+        }
+      }
+  
+  let savedInLSMoviesQueue = localStorage.getItem('queue')
+    if(savedInLSMoviesQueue) {
+      savedInLSMoviesQueue = JSON.parse(savedInLSMoviesQueue)
+      let map = savedInLSMoviesQueue.map(movie => {return movie.id})
+      let index = map.indexOf(Number(movieId))
+        if (index >= 0) {
+          queueBtn.classList.add('active')
+          queueBtn.style.backgroundColor = '#ff6b08'
+          queueBtn.textContent = 'remove from queue'
+      }
+    }
 }
 
 function modalBtnsToProcess() {
@@ -112,15 +144,15 @@ function modalBtnsToProcess() {
   function onWatchedFilmsToSaveClick(evt) {
     evt.preventDefault();
     watchedBtn.classList.toggle('active');
-    btnWatchedTextContentToChange();
+    btnWatchedTextContentToChange()
     initWatchedLS(watchedBtn.dataset.id);
   }
 
   function onQueueFilmsToSaveClick(evt) {
     evt.preventDefault();
     queueBtn.classList.toggle('active');
-    btnQueueTextContentToChange();
     initQueueLS(queueBtn.dataset.id);
+    btnQueueTextContentToChange()
   }
 
   function btnWatchedTextContentToChange() {
@@ -217,6 +249,7 @@ function modalMovieClose() {
 }
 
 function onCloseModalMovieFromKey(event) {
+  // localStorage.removeItem('watched')
   if (event.code === 'Escape') {
     backdropFooterEl.classList.add('is-hidden');
     backdropEl.classList.add('is-hidden');
