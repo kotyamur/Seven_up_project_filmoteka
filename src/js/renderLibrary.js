@@ -1,7 +1,7 @@
 import markupFilms from './markupFilms';
 
 import { renderLibraryPagination } from './pagination';
-
+import markupFilmsLib from './markupFilmsLib';
 const refs = {
   btnWatched: document.querySelector('.watched'),
   btnQueue: document.querySelector('.queue'),
@@ -10,10 +10,8 @@ const refs = {
   pagination: document.getElementById('pagination'),
 };
 
-
 refs.btnWatched.addEventListener('click', getWatched);
 refs.btnQueue.addEventListener('click', getQueue);
-
 
 getWatched();
 function getWatched() {
@@ -21,9 +19,9 @@ function getWatched() {
   const parsItem = JSON.parse(localStorage.getItem('watched'));
   if (parsItem !== null && parsItem.length !== 0) {
     refs.plug.style.display = 'none';
-    refs.films.innerHTML = markupFilms(parsItem.slice(0, 20));
+    refs.films.innerHTML = markupFilmsLib(parsItem.slice(0, 20));
     renderLibraryPagination('watched', films => {
-      refs.films.innerHTML = markupFilms(films);
+      refs.films.innerHTML = markupFilmsLib(films);
     });
   } else {
     refs.plug.style.display = 'flex';
@@ -39,9 +37,9 @@ function getQueue() {
   const parsItem = JSON.parse(localStorage.getItem('queue'));
   if (parsItem !== null && parsItem.length !== 0) {
     refs.plug.style.display = 'none';
-    refs.films.innerHTML = markupFilms(parsItem.slice(0, 20));
+    refs.films.innerHTML = markupFilmsLib(parsItem.slice(0, 20));
     renderLibraryPagination('queue', films => {
-      refs.films.innerHTML = markupFilms(films);
+      refs.films.innerHTML = markupFilmsLib(films);
     });
   } else {
     refs.plug.style.display = 'flex';
