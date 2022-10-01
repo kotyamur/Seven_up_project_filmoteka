@@ -1,11 +1,11 @@
 import markupFilms from './markupFilms';
+
 const refs = {
     btnWatched : document.querySelector('.watched'),
     btnQueue : document.querySelector('.queue'),
     films : document.querySelector('.films'),
     plug : document.querySelector('.plug')
 }
-
 
 refs.btnWatched.addEventListener('click', getWatched)
 refs.btnQueue.addEventListener('click', getQueue)
@@ -39,4 +39,6 @@ function getQueue(){
     refs.btnWatched.classList.remove('is-active')
 }
 
+function renderModalMovie (currentMovieId) {
 
+}

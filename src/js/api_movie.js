@@ -33,13 +33,14 @@ function onFilmCardClick(evt) {
     });
   document.body.classList.add('no-scroll');
 }
+
 function fetchMovieData(movie_id) {
   return api.getSingleMovieByID(movie_id).then(response => {
     return response.data;
   });
 }
 
-function renderMovieModal(data) {
+export default function renderMovieModal(data) {
   const {
     poster_path,
     original_title,
@@ -51,7 +52,6 @@ function renderMovieModal(data) {
     overview,
     popularity,
   } = data
-  console.log(title.length)
   const genresRender = genres
     .map(genre => {
       return genre.name;
@@ -101,10 +101,15 @@ function renderMovieModal(data) {
       </div>
    
     </div>`;
+  const hugeTitleLength = title.length > 54;
+  if (hugeTitleLength) {
+  const titleName = document.querySelector('.modal__title')
+  console.log(titleName)
+  titleName.style.fontsize='10px'
+  }
   modalContainer.innerHTML = markUp;
   initBtns(id);
   modalBtnsToProcess();
-  
 }
 
 function initBtns (movieId) {
