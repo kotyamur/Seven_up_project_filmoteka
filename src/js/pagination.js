@@ -6,8 +6,6 @@ const arrowIcon = `${icons}#arrow`;
 const container = document.getElementById('pagination');
 
 const options = {
-  // totalItems: totalResult,
-  // totalItems: 0,
   itemsPerPage: 20,
   visiblePages: 5,
   page: 1,
