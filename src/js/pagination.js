@@ -54,3 +54,27 @@ export const renderPagination = (api, renderer, searchFnName) => {
     renderer(resultApi);
   });
 };
+
+export const renderLibraryPagination = (storageDataName) => {
+
+  const savedUserFilms = JSON.parse(localStorage.getItem(storageDataName));
+  console.log(savedUserFilms);
+   
+  const totalResult = savedUserFilms.length;
+
+  if (totalResult === 0) {
+    container.style.display = 'none';
+  } else {
+    container.style.display = 'flex';
+  }
+
+  options.totalItems = totalResult;
+
+  const pagination = new Pagination(container, options);
+
+  // pagination.on('afterMove', async ({ page }) => {
+  //   api.page = page;
+  //   const resultApi = await api[searchFnName]();
+  //   renderer(resultApi);
+  // });
+};
