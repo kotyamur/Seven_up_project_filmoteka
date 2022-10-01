@@ -35,7 +35,7 @@ const options = {
 export const renderPagination = (api, renderer, searchFnName) => {
   const { totalResult } = api;
 
-  if (totalResult === 0) {
+  if (totalResult === 0 || totalResult < 21) {
     container.style.display = 'none';
   } else {
     container.style.display = 'flex';
@@ -57,7 +57,7 @@ export const renderLibraryPagination = (storageDataName, renderer) => {
 
   const totalResult = savedUserFilms.length;
 
-  if (totalResult === 0) {
+  if (totalResult === 0 || totalResult < 21) {
     container.style.display = 'none';
   } else {
     container.style.display = 'flex';
