@@ -5,8 +5,8 @@ window.onscroll = function () {
 };
 function scrollFunction() {
   if (
-    document.body.scrollTop > 3000 ||
-    document.documentElement.scrollTop > 3000
+    document.body.scrollTop > 1500 ||
+    document.documentElement.scrollTop > 1500
   ) {
     scrollToTopBtn.classList.add('showBtn');
   } else {
