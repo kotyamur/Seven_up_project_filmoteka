@@ -108,10 +108,10 @@ function renderMovieModal(data) {
 function initBtns (movieId) {
   const watchedBtn = document.querySelector('button[data-type="watched"]');
   const queueBtn = document.querySelector('button[data-type="queue"]');
-  let savedInLSMovies = localStorage.getItem('watched')
-  if(savedInLSMovies) {
-    savedInLSMovies = JSON.parse(savedInLSMovies)
-    let map = savedInLSMovies.map(movie => {return movie.id})
+  let savedInLSMoviesWatched = localStorage.getItem('watched')
+  if(savedInLSMoviesWatched) {
+    savedInLSMoviesWatched = JSON.parse(savedInLSMoviesWatched)
+    let map = savedInLSMoviesWatched.map(movie => {return movie.id})
     let index = map.indexOf(Number(movieId))
        if (index >= 0) {
           watchedBtn.classList.add('active')
@@ -120,6 +120,17 @@ function initBtns (movieId) {
         }
       }
   
+  let savedInLSMoviesQueue = localStorage.getItem('queue')
+    if(savedInLSMoviesQueue) {
+      savedInLSMoviesQueue = JSON.parse(savedInLSMoviesQueue)
+      let map = savedInLSMoviesQueue.map(movie => {return movie.id})
+      let index = map.indexOf(Number(movieId))
+        if (index >= 0) {
+          queueBtn.classList.add('active')
+          queueBtn.style.backgroundColor = '#ff6b08'
+          queueBtn.textContent = 'remove from queue'
+      }
+    }
 }
 
 function modalBtnsToProcess() {
@@ -131,6 +142,7 @@ function modalBtnsToProcess() {
   function onWatchedFilmsToSaveClick(evt) {
     evt.preventDefault();
     watchedBtn.classList.toggle('active');
+    btnWatchedTextContentToChange()
     initWatchedLS(watchedBtn.dataset.id);
   }
 
@@ -138,27 +150,28 @@ function modalBtnsToProcess() {
     evt.preventDefault();
     queueBtn.classList.toggle('active');
     initQueueLS(queueBtn.dataset.id);
+    btnQueueTextContentToChange()
   }
 
-  // function btnWatchedTextContentToChange() {
-  //   if(watchedBtn.classList.contains('active')) {
-  //     watchedBtn.textContent = 'remove from watched'
-  //     watchedBtn.style.backgroundColor = '#ff6b08'
-  //     } else {
-  //     watchedBtn.textContent = 'add to watched' 
-  //     watchedBtn.style.backgroundColor = '#fff'
-  //   }
-  // }
+  function btnWatchedTextContentToChange() {
+    if(watchedBtn.classList.contains('active')) {
+      watchedBtn.textContent = 'remove from watched'
+      watchedBtn.style.backgroundColor = '#ff6b08'
+      } else {
+      watchedBtn.textContent = 'add to watched' 
+      watchedBtn.style.backgroundColor = '#fff'
+    }
+  }
 
-  // function btnQueueTextContentToChange() {
-  //   if(queueBtn.classList.contains('active')) {
-  //     queueBtn.textContent = 'remove from queue'
-  //     queueBtn.style.backgroundColor = '#ff6b08'
-  //     } else {
-  //     queueBtn.textContent = 'add to queue'
-  //     queueBtn.style.backgroundColor = '#fff'
-  //   }
-  // }
+  function btnQueueTextContentToChange() {
+    if(queueBtn.classList.contains('active')) {
+      queueBtn.textContent = 'remove from queue'
+      queueBtn.style.backgroundColor = '#ff6b08'
+      } else {
+      queueBtn.textContent = 'add to queue'
+      queueBtn.style.backgroundColor = '#fff'
+    }
+  }
 }
 
 function initWatchedLS (currentMovieId) {
