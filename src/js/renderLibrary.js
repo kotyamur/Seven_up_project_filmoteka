@@ -1,9 +1,4 @@
-import {renderMovieModal} from './api_movie'
 import markupFilms from './markupFilms';
-
-
-
-
 const refs = {
     btnWatched : document.querySelector('.watched'),
     btnQueue : document.querySelector('.queue'),
