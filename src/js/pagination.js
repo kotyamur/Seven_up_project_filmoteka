@@ -35,11 +35,14 @@ const options = {
 export const renderPagination = (api, renderer, searchFnName) => {
   const { totalResult } = api;
 
-  if (totalResult === 0 || totalResult < 21) {
+  if (totalResult > 0 && totalResult < 21) {
     container.style.display = 'none';
   } else {
     container.style.display = 'flex';
   }
+  if (totalResult === 0) {
+    return
+  } 
 
   options.totalItems = totalResult;
 
