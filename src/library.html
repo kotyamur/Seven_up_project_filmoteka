@@ -16,15 +16,20 @@
   </head>
 
   <body>
-    <include src="./partials/checkbox_theme.html"></include>
-    <include src="./partials/header_library.html"></include>
-    <include src="./partials/spinner.html"></include>
-    <main>
-      <include src="./partials/movies_container_library.html"></include>
-      <include src="./partials/pagination.html"></include>
-      <include src="./partials/pagination.html"></include>
-    </main>
-    <include src="./partials/footer.html"></include>
+    <div class="wrapper">
+      <div class="content">
+        <include src="./partials/checkbox_theme.html"></include>
+        <include src="./partials/header_library.html"></include>
+        <include src="./partials/spinner.html"></include>
+        <main>
+          <include src="./partials/movies_container_library.html"></include>
+          <include src="./partials/pagination.html"></include>
+          <include src="./partials/pagination.html"></include>
+        </main>
+      </div>
+      <include src="./partials/footer.html"></include>
+    </div>
+
     <div class="backdrop is-hidden" data-backdrop>
       <include src="./partials/modal_movie.html"></include>
       <include src="./partials/modal_students.html"></include>
