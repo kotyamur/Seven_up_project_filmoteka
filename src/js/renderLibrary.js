@@ -13,8 +13,9 @@ const refs = {
 refs.btnWatched.addEventListener('click', getWatched);
 refs.btnQueue.addEventListener('click', getQueue);
 
+// refs.btnWatched.classList.contains('is-active') ? getWatched() : getQueue();
 getWatched();
-export default function getWatched() {
+function getWatched() {
   refs.films.innerHTML = '';
   const parsItem = JSON.parse(localStorage.getItem('watched'));
   refs.films.classList.remove('queue');
@@ -34,7 +35,7 @@ export default function getWatched() {
   refs.btnWatched.classList.add('is-active');
 }
 
-export default function getQueue() {
+function getQueue() {
   refs.films.innerHTML = '';
   const parsItem = JSON.parse(localStorage.getItem('queue'));
   refs.films.classList.remove('watched');
@@ -53,3 +54,5 @@ export default function getQueue() {
   refs.btnQueue.classList.add('is-active');
   refs.btnWatched.classList.remove('is-active');
 }
+
+export { getWatched, getQueue };
