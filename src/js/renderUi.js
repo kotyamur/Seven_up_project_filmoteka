@@ -11,11 +11,12 @@ const refs = {
   searcError: document.querySelector('.search__error-text'),
 };
 
-const api = new Api();
+let api = new Api();
 
 refs.search.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
+  api = new Api();
   e.preventDefault();
   api.resetPage();
   api.searchQuery = e.currentTarget.elements.searchQuery.value;
