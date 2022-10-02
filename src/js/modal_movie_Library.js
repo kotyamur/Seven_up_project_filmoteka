@@ -25,14 +25,15 @@ function onFilmCardClick(evt) {
   backdropEl.classList.remove('is-hidden');
   backdropFooterEl.classList.remove('is-hidden');
   const currentMovieId = evt.target.closest('li').dataset.id;
+  console.log(currentMovieId)
   const folder = films.classList.contains('watched') ? 'watched' : 'queue';
   let moviesArraySavedInLS = localStorage.getItem(folder);
   moviesArraySavedInLS = JSON.parse(moviesArraySavedInLS);
   const arrayOfMovies = moviesArraySavedInLS.find(
     movie => Number(currentMovieId) === movie.id
   );
+  api.movieToSave = arrayOfMovies;
   renderMovieModal(arrayOfMovies);
-  console.log('1');
   document.body.classList.add('no-scroll');
 }
 
