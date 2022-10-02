@@ -53,3 +53,5 @@ function getQueue() {
   refs.btnQueue.classList.add('is-active');
   refs.btnWatched.classList.remove('is-active');
 }
+
+export { getWatched, getQueue };
