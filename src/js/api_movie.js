@@ -1,4 +1,3 @@
-import axios from 'axios';
 import '../sass/components/_modal_movie.scss';
 import Api from './api';
 

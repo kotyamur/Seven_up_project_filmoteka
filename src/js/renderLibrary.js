@@ -1,5 +1,3 @@
-import markupFilms from './markupFilms';
-
 import { renderLibraryPagination } from './pagination';
 import markupFilmsLib from './markupFilmsLib';
 const refs = {
