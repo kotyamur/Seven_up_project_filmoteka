@@ -14,7 +14,7 @@ refs.btnWatched.addEventListener('click', getWatched);
 refs.btnQueue.addEventListener('click', getQueue);
 
 getWatched();
-function getWatched() {
+export default function getWatched() {
   refs.films.innerHTML = '';
   const parsItem = JSON.parse(localStorage.getItem('watched'));
   refs.films.classList.remove('queue');
@@ -34,7 +34,7 @@ function getWatched() {
   refs.btnWatched.classList.add('is-active');
 }
 
-function getQueue() {
+export default function getQueue() {
   refs.films.innerHTML = '';
   const parsItem = JSON.parse(localStorage.getItem('queue'));
   refs.films.classList.remove('watched');

@@ -1,5 +1,7 @@
 import '../sass/components/_modal_movie.scss';
 import Api from './api';
+import getWatched from './renderLibrary';
+import getQueue from './renderLibrary'
 
 const filmsContainer = document.querySelector('.films');
 const backdropEl = document.querySelector('.modal-movie');
@@ -157,8 +159,9 @@ function modalBtnsToProcess() {
   function onWatchedFilmsToSaveClick(evt) {
     evt.preventDefault();
     watchedBtn.classList.toggle('active');
-    btnWatchedTextContentToChange();
     initWatchedLS(watchedBtn.dataset.id);
+    btnWatchedTextContentToChange();
+    getWatched();
   }
 
   function onQueueFilmsToSaveClick(evt) {
@@ -166,6 +169,7 @@ function modalBtnsToProcess() {
     queueBtn.classList.toggle('active');
     initQueueLS(queueBtn.dataset.id);
     btnQueueTextContentToChange();
+    getQueue();
   }
 
   function btnWatchedTextContentToChange() {
