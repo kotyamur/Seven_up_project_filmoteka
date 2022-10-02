@@ -37,10 +37,17 @@ async function findRenderUi() {
     }
     loader();
     const resultApi = await api.search();
-
-    api.totalResult === 0
-      ? refs.searcError.classList.remove('is-hidden')
-      : refs.searcError.classList.add('is-hidden');
+    if (api.totalResult === 0) {
+      refs.searcError.classList.remove('is-hidden');
+      setTimeout(() => {
+        refs.searcError.classList.add('is-hidden');
+      }, 1500);
+    } else {
+      refs.searcError.classList.add('is-hidden');
+    }
+    // api.totalResult === 0
+    //   ? refs.searcError.classList.remove('is-hidden')
+    //   : refs.searcError.classList.add('is-hidden');
     renderUi(resultApi);
     renderPagination(api, renderUi, 'search');
     stopLoader();
