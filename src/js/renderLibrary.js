@@ -13,7 +13,6 @@ const refs = {
 refs.btnWatched.addEventListener('click', getWatched);
 refs.btnQueue.addEventListener('click', getQueue);
 
-// refs.btnWatched.classList.contains('is-active') ? getWatched() : getQueue();
 getWatched();
 function getWatched() {
   refs.films.innerHTML = '';
