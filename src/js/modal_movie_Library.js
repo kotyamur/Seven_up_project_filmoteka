@@ -25,7 +25,6 @@ function onFilmCardClick(evt) {
   backdropEl.classList.remove('is-hidden');
   backdropFooterEl.classList.remove('is-hidden');
   const currentMovieId = evt.target.closest('li').dataset.id;
-  console.log(currentMovieId)
   const folder = films.classList.contains('watched') ? 'watched' : 'queue';
   let moviesArraySavedInLS = localStorage.getItem(folder);
   moviesArraySavedInLS = JSON.parse(moviesArraySavedInLS);
@@ -264,7 +263,6 @@ function modalMovieClose() {
 }
 
 function onCloseModalMovieFromKey(event) {
-  localStorage.removeItem('watched');
   if (event.code === 'Escape') {
     backdropFooterEl.classList.add('is-hidden');
     backdropEl.classList.add('is-hidden');
