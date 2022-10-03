@@ -3,7 +3,8 @@ import icons from '../images/icons.svg';
 
 const arrowIcon = `${icons}#arrow`;
 
-const container = document.getElementById('pagination');
+// const container = document.getElementById('pagination');
+const container = document.querySelector('.tui-pagination');
 
 const options = {
   itemsPerPage: 20,
