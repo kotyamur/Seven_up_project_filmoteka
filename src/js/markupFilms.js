@@ -12,6 +12,7 @@ export default function markupFilms(results) {
         genre_ids,
       }) => {
         let arrayGenre = [];
+        let arrayGenereString = '';
         let url = 'https://image.tmdb.org/t/p/w500/';
         let year = String(release_date).slice(0, 4);
 
@@ -40,6 +41,7 @@ export default function markupFilms(results) {
           arrayGenre = arrayGenre.slice(0, 2);
           arrayGenre.push('Other');
         }
+        arrayGenereString = arrayGenre.join(', ');
         return `<li class="films__item" data-id=${id}>
           <a href="" class="films__item-link">
             <div class="poster__thumb">
@@ -48,7 +50,7 @@ export default function markupFilms(results) {
               <div class="poster__about">
                 <p class="poster__title">${title}</p>
                   <div class="poster__description">
-                <p class="poster__genre">${arrayGenre}</p>
+                <p class="poster__genre">${arrayGenereString}</p>
                 <p class="poster__year">${year}</p>
                 
                 </div>

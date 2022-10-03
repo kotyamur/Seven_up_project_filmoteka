@@ -11,6 +11,7 @@ export default function markupFilmsLib(results) {
         genres,
       }) => {
         let arrayGenre = [];
+        let arrayGenereString = '';
         let url = 'https://image.tmdb.org/t/p/w500/';
         let year = String(release_date).slice(0, 4);
 
@@ -24,15 +25,15 @@ export default function markupFilmsLib(results) {
         if (genres.length === 0) {
           arrayGenre.push('No information');
         }
-        genres
-          .map(genre => {
-            arrayGenre.push(genre.name);
-            if (arrayGenre.length > 2) {
-              arrayGenre = arrayGenre.slice(0, 2);
-              arrayGenre.push('Other');
-            }
-          })
-          .join(', ');
+        genres.map(genre => {
+          arrayGenre.push(genre.name);
+          console.log(arrayGenre);
+          if (arrayGenre.length > 2) {
+            arrayGenre = arrayGenre.slice(0, 2);
+            arrayGenre.push('Other');
+          }
+          arrayGenereString = arrayGenre.join(', ');
+        });
 
         return `<li class="films__item" data-id=${id}>
           <a href="" class="films__item-link">
@@ -42,7 +43,7 @@ export default function markupFilmsLib(results) {
               <div class="poster__about">
                 <p class="poster__title">${title}</p>
                   <div class="poster__description">
-                <p class="poster__genre">${arrayGenre}</p>
+                <p class="poster__genre">${arrayGenereString}</p>
                 <p class="poster__year">${year}</p>
                 
                 </div>
