@@ -26,7 +26,9 @@ function getWatched() {
   } else {
     refs.plug.style.display = 'flex';
     refs.films.innerHTML = '';
-    refs.pagination.style.display = 'none';
+    if(refs.pagination !== null && refs.pagination !== undefined){
+      refs.pagination.style.display = 'none';
+    }
   }
   refs.btnQueue.classList.remove('is-active');
   refs.btnWatched.classList.add('is-active');
@@ -46,7 +48,11 @@ function getQueue() {
   } else {
     refs.plug.style.display = 'flex';
     refs.films.innerHTML = '';
-    refs.pagination.style.display = 'none';
+    console.log(refs.pagination)
+    if(refs.pagination !== null && refs.pagination !== undefined){
+      refs.pagination.style.display = 'none';
+    }
+    
   }
   refs.btnQueue.classList.add('is-active');
   refs.btnWatched.classList.remove('is-active');
