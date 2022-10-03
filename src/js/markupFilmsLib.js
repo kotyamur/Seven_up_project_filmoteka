@@ -27,7 +27,7 @@ export default function markupFilmsLib(results) {
         }
         genres.map(genre => {
           arrayGenre.push(genre.name);
-          console.log(arrayGenre);
+
           if (arrayGenre.length > 2) {
             arrayGenre = arrayGenre.slice(0, 2);
             arrayGenre.push('Other');
