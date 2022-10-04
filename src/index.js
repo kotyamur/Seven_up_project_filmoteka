@@ -8,3 +8,4 @@ import './js/loader';
 import './js/pagination';
 import './js/sort-top-film';
 import './js/dark-theme';
+import './js/typed';
